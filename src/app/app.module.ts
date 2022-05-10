@@ -8,6 +8,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
 import { SeeRidesComponent } from './shared/components/see-rides/see-rides.component';
+import { CreateComponent } from './rides/create/create.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SeeRidesComponent } from './shared/components/see-rides/see-rides.compo
     AppComponent,
     SignUpComponent,
     HomeComponent,
-    SeeRidesComponent
+    SeeRidesComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
