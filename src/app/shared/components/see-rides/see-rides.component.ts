@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RidesService } from '../../shared/services/rides.service'
+import { RidesService } from '../../services/rides.service';
+
 
 @Component({
   selector: 'app-see-rides',
@@ -16,11 +17,11 @@ export class SeeRidesComponent implements OnInit {
     this.getRides();
   }
 
+
   getRides() {
     this.rs.getRides().subscribe(data => {
       this.rides = data;
       console.log(this.rides[0]);
     });
   }
-
 }

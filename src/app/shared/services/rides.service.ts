@@ -10,7 +10,7 @@ export class RidesService {
 
 
   getRides() {
-    return this.http.get("http://localhost:8080/Trajets/getAll");
+    return this.http.get("http://localhost:8080/ride/getAll");
   }
 
 }
