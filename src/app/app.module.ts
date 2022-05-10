@@ -5,10 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
-import { SignUpComponent } from './auth/sign-up/sign-up.component';
-import { HomeComponent } from './home/home.component';
+import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
+import { HomeComponent } from './pages/home/home.component';
 import { SeeRidesComponent } from './shared/components/see-rides/see-rides.component';
-import { CreateComponent } from './rides/create/create.component';
+import { CreateComponent } from './pages/create-ride/create-ride.component';
 
 
 @NgModule({
