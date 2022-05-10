@@ -13,6 +13,6 @@
     <input type="password" placeholder="Confirmation de mot de passe" formControlName="confirm_password">
     <p *ngIf="form.get('confirm_password')?.errors?.['required']&&form.get('confirm_password')?.touched">Veuillez confirmer votre mot de passe</p>
     <p *ngIf="error">{{error}}</p>
-    <button>Valider</button>
+    <button type="submit" [disabled]="!form.valid">Valider</button>
   </form>
 </div>
