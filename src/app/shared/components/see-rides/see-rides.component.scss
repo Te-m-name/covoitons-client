@@ -1,0 +1,15 @@
+@import "../../../../styles.scss";
+
+.rides-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: #038491;
+    width: 50%;
+    margin: 2em;
+    border-radius: 2em;
+    padding: 2em;
+}

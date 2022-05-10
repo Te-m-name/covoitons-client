@@ -7,13 +7,17 @@ import { HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
+import { SeeRidesComponent } from './shared/components/see-rides/see-rides.component';
+import { CreateComponent } from './rides/create/create.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpComponent,
-    HomeComponent
+    HomeComponent,
+    SeeRidesComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

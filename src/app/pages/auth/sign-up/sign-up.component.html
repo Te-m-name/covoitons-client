@@ -18,6 +18,6 @@
     <p *ngIf="form.get('confirm_password')?.errors?.['required']&&form.get('confirm_password')?.touched">Veuillez
       confirmer votre mot de passe</p>
     <p *ngIf="error">{{error}}</p>
-    <button type="submit" [disabled]="!form.valid">Valider</button>
+    <button>Valider</button>
   </form>
 </div>
