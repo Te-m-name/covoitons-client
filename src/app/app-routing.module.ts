@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: "inscription", canActivate: [DataUserGuard], component:SignUpComponent},
   {path: "connexion", component:SignInComponent},
   {path: "trajets", canActivate: [DataUserGuard], component:SeeRidesComponent},
-  {path:"trajet/:id", canActivate: [DataUserGuard], component:SeeARideComponent},
+  {path: "trajet/:id", canActivate: [DataUserGuard], component:SeeARideComponent},
   {path: "nouveau", canActivate: [DataUserGuard], component:CreateComponent},
   {path: "rechercher", canActivate: [DataUserGuard], component:SeeRidesComponent}
 ];

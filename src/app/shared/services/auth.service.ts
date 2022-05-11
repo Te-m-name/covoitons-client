@@ -40,4 +40,9 @@ export class AuthService {
     ))
   }
 
+  public logout(): void {
+    this.cookieService.delete("access_token");
+    this.user$.next(null);
+  }
+
 }

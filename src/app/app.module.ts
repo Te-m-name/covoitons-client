@@ -14,6 +14,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './helpers/auth.interceptors';
 import { SeeARideComponent } from './pages/see-a-ride/see-a-ride.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SeeARideComponent } from './pages/see-a-ride/see-a-ride.component';
     CreateComponent,
     SignInComponent,
     SeeARideComponent,
-    SeeRidesComponent
+    SeeRidesComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
