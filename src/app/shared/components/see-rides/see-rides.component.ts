@@ -19,7 +19,7 @@ export class SeeRidesComponent implements OnInit {
 
 
   getRides() {
-    this.rs.getRides().subscribe(data => {
+    this.rs.getRides(this.id).subscribe(data => {
       this.rides = data;
       console.log(this.rides[0]);
     });

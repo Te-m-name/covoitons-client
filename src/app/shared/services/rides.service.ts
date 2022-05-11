@@ -10,11 +10,16 @@ export class RidesService {
   constructor(private http:HttpClient) { }
 
 
-  getRides() {
+  public getRides(): Observable<any> {
     return this.http.get("http://localhost:8080/ride/getAll");
   }
 
-  public getARide(id: any): Observable<any>{
+  public getARide(id: string | null | undefined): Observable<any>{
     return this.http.get("http://localhost:8080/ride/getARide/"+ id);
   }
+
+  public searchRideByCity(city: string): Observable<any> {
+    return this.http.get("http://localhost:8080/ride/searchCity/" + city);
+  }
+
 }

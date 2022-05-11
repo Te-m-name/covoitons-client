@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RidesService} from "../../shared/services/rides.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-see-a-ride',
@@ -8,17 +8,25 @@ import {Router} from "@angular/router";
   styleUrls: ['./see-a-ride.component.scss']
 })
 export class SeeARideComponent implements OnInit {
-
-  constructor(private rs: RidesService, private router:Router) { }
+  public ride:any;
+  public id?: string | null;
+  constructor(private rs: RidesService, private router:Router, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.actRoute.paramMap.subscribe(res => {
+      this.id = res.get('id');
+      console.log(this.id);
+    });
+    this.getARide();
   }
 
-  public getARide(id:any){
-    this.rs.getARide(id).subscribe( () =>{
-    console.log("trajet trouvé");
-    //this.router.navigate(["/trajet"]);
-    console.log(id);
+  public getARide(){
+    this.rs.getARide(this.id).subscribe( data => {
+      this.ride = data;
+      console.log(this.ride);
+      console.log("trajet trouvé");
+      console.log(this.id);
     });
   }
 }
