@@ -5,12 +5,14 @@ import { SeeRidesComponent } from "./shared/components/see-rides/see-rides.compo
 
 import {HomeComponent} from "./home/home.component";
 import {CreateComponent} from "./rides/create/create.component";
+import { SearchRideComponent } from './pages/search-ride/search-ride.component';
 
 const routes: Routes = [
-  {path:"", component:HomeComponent},
-  {path:"inscription", component:SignUpComponent},
-  {path:"trajets", component:SeeRidesComponent},
-  {path:"nouveau", component:CreateComponent}
+  {path: "", component:HomeComponent},
+  {path: "inscription", component:SignUpComponent},
+  {path: "trajets", component:SeeRidesComponent},
+  {path: "nouveau", component:CreateComponent},
+  {path: "rechercher", component:SearchRideComponent}
 ];
 
 @NgModule({
