@@ -5,16 +5,19 @@ import { SeeRidesComponent } from "./shared/components/see-rides/see-rides.compo
 
 import {HomeComponent} from "./pages/home/home.component";
 import {CreateComponent} from "./pages/create-ride/create-ride.component";
+import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 
 const routes: Routes = [
   {path:"", component:HomeComponent},
   {path:"inscription", component:SignUpComponent},
   {path:"trajets", component:SeeRidesComponent},
-  {path:"nouveau", component:CreateComponent}
+  {path:"nouveau", component:CreateComponent},
+  {path:"connexion", component:SignInComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

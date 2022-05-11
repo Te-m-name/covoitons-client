@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validator, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../shared/services/auth.service";
 import {Router} from "@angular/router";
 
@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class SignUpComponent implements OnInit {
 
-  public form: FormGroup =this.fb.group({
+  public form: FormGroup = this.fb.group({
     lastname: ["", Validators.required],
     firstname: ["", Validators.required],
     email: ["", Validators.required],
