@@ -9,6 +9,7 @@ import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SeeRidesComponent } from './shared/components/see-rides/see-rides.component';
 import { CreateComponent } from './pages/create-ride/create-ride.component';
+import { SearchRideComponent } from './pages/search-ride/search-ride.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CreateComponent } from './pages/create-ride/create-ride.component';
     SignUpComponent,
     HomeComponent,
     SeeRidesComponent,
-    CreateComponent
+    CreateComponent,
+    SearchRideComponent
   ],
   imports: [
     BrowserModule,

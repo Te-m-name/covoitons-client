@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { RidesService } from '../../services/rides.service';
 
 
@@ -9,19 +10,21 @@ import { RidesService } from '../../services/rides.service';
 })
 export class SeeRidesComponent implements OnInit {
 
-  rides: any;
+  rides: any = [];
+  public form: FormGroup = this.fb.group({
+    city: [""]
+  });
 
-  constructor(private rs: RidesService) { }
+  constructor(private rs: RidesService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.getRides();
+    this.rs.getRides().subscribe(data =>
+      this.rides = data)
   }
 
+  public submit() {
+    this.rs.searchRideByCity(this.form.value.city).subscribe(data =>
+      this.rides = data)
+  }    
 
-  getRides() {
-    this.rs.getRides().subscribe(data => {
-      this.rides = data;
-      console.log(this.rides[0]);
-    });
-  }
 }
