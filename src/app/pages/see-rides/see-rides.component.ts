@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { RidesService } from '../../services/rides.service';
+
+import { RidesService } from '../../shared/services/rides.service';
 
 
 @Component({
