@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormArray, NgForm } from '@angular/forms'
+import { FormGroup, FormControl, FormArray, NgForm, FormBuilder } from '@angular/forms'
 import { RidesService } from 'src/app/shared/services/rides.service';
 
 @Component({
@@ -9,20 +9,23 @@ import { RidesService } from 'src/app/shared/services/rides.service';
 })
 export class SearchRideComponent implements OnInit {
 
+  public form: FormGroup = this.fb.group({
+    city: [""]
+  });
+
   rides: any;
 
-  submit(form: NgForm) {
-    console.log(form.value);   
-  }
-
-  constructor(private rs: RidesService) { }
+  constructor(private rs: RidesService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
 
-  searchRideByCity(city: string) {
-    this.rs.searchRideByCity(city).subscribe(data => 
-      this.rides = data)
+  public submit() {
+    console.log(this.form.value.city);
+    this.rs.searchRideByCity(this.form.value.city).subscribe(data => {
+      this.rides = data;
+      console.log(data)})
+    
   }                                     
 
 }
