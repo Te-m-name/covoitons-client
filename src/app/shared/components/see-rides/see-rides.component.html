@@ -5,6 +5,7 @@
         <h3>{{ride.itinary}}</h3>
         <h4>Départ le {{ride.date.substring(0, 10)}} à {{ride.date.substring(11, 16)}}</h4>
         <p> Nombre de place(s) disponible(s) : {{ride.places}}</p>
+        <p (click)="getARide(ride.id)">Voir</p>
 
 
     </div>

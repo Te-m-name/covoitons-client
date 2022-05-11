@@ -24,4 +24,11 @@ export class SeeRidesComponent implements OnInit {
       console.log(this.rides[0]);
     });
   }
+
+  public getARide(id:any){
+    this.rs.getARide(id).subscribe( () =>{
+      console.log("trajet trouvé");
+      console.log(id);
+    });
+  }
 }
