@@ -8,7 +8,7 @@
     height: 100vh;
     background-color: $primary-color;
     /*border-radius: 2em;*/
-   
+
     & form {
         display: flex;
         flex-direction: column;
@@ -17,7 +17,7 @@
             text-align: center;
             color:rgb(255, 255, 255);
         }
-        
+
         input {
             margin: 1em 0;
             border-radius: 2em;

@@ -7,12 +7,13 @@ import { HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
 import { HomeComponent } from './pages/home/home.component';
-import { SeeRidesComponent } from './shared/components/see-rides/see-rides.component';
+import { SeeRidesComponent } from './pages/see-rides/see-rides.component';
 import { CreateComponent } from './pages/create-ride/create-ride.component';
 import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 import { CookieService } from 'ngx-cookie-service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './helpers/auth.interceptors';
+import { SeeARideComponent } from './pages/see-a-ride/see-a-ride.component';
 
 
 @NgModule({
@@ -22,7 +23,9 @@ import { AuthInterceptor } from './helpers/auth.interceptors';
     HomeComponent,
     SeeRidesComponent,
     CreateComponent,
-    SignInComponent
+    SignInComponent,
+    SeeARideComponent,
+    SeeRidesComponent
   ],
   imports: [
     BrowserModule,

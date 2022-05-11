@@ -1,0 +1,50 @@
+@import "src/styles";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  //background-color: $primary-color;
+  //border-radius: 2em;
+
+   & div {
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     height: 55%;
+     width: 50%;
+     background-color: #32a8b4;
+     border-radius: 2em;
+     padding: 2em 5em;
+
+    h2 {
+      text-align: center;
+      color:rgb(255, 255, 255);
+    }
+
+    span {
+      color: rgb(194, 28, 28);
+    }
+    div {
+      display: block;
+      justify-content: space-between;
+
+    button {
+      border-radius: 1.50em;
+      border-style: none;
+      background-color: $secondary-color;
+      color:rgb(255, 255, 255);
+      height: 3em;
+      width: 10em;
+      margin: 1em;
+      font-size: 1em;
+    }
+    }
+
+    p {
+      font-size: 1.5em;
+    }
+  }
+  }
