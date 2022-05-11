@@ -10,10 +10,14 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AuthService {
 
+  private url: string = "http://localhost:8080/";
+  public user$: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(
+    null
+  );
+
   constructor(private http:HttpClient, private cookieService: CookieService) { }
 
   public signUp(user: User): Observable<any>{
-
     return this.http.post("http://localhost:8080/user/add", user);
   }
 
@@ -25,6 +29,15 @@ export class AuthService {
         }
       })
     );
+  }
+
+  public fetchCurrentUser(): Observable<User> {
+    return this.http.get<User>(`${this.url}user/current-user`).pipe((
+      tap((user: User) => {
+        this.user$.next(user);
+        console.log(this.user$);
+      })
+    ))
   }
 
 }

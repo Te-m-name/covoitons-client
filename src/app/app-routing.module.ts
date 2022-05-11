@@ -6,13 +6,14 @@ import { SeeRidesComponent } from "./shared/components/see-rides/see-rides.compo
 import {HomeComponent} from "./pages/home/home.component";
 import {CreateComponent} from "./pages/create-ride/create-ride.component";
 import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
+import { DataUserGuard } from './shared/guards/data-user.guard';
 
 const routes: Routes = [
-  {path:"", component:HomeComponent},
-  {path:"inscription", component:SignUpComponent},
-  {path:"trajets", component:SeeRidesComponent},
-  {path:"nouveau", component:CreateComponent},
-  {path:"connexion", component:SignInComponent}
+  {path: "", canActivate: [DataUserGuard], component:HomeComponent},
+  {path: "inscription", canActivate: [DataUserGuard], component:SignUpComponent},
+  {path: "trajets", canActivate: [DataUserGuard], component:SeeRidesComponent},
+  {path: "nouveau", canActivate: [DataUserGuard], component:CreateComponent},
+  {path: "connexion", component:SignInComponent}
 ];
 
 @NgModule({

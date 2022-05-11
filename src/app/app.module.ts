@@ -42,3 +42,7 @@ import { AuthInterceptor } from './helpers/auth.interceptors';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+function JWT_Module_Options(JWT_Module_Options: any): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
+  throw new Error('Function not implemented.');
+}
+
