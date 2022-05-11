@@ -18,6 +18,7 @@ export class SearchRideComponent implements OnInit {
   constructor(private rs: RidesService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    
   }
 
   public submit() {
@@ -25,7 +26,6 @@ export class SearchRideComponent implements OnInit {
     this.rs.searchRideByCity(this.form.value.city).subscribe(data => {
       this.rides = data;
       console.log(data)})
-    
   }                                     
 
 }

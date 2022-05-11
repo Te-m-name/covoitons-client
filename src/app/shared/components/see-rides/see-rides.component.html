@@ -1,17 +1,16 @@
-<!-- <div class="container">
+<div class="container">
     <form [formGroup]="form" (submit)="submit()" class="container__form">
-      <input type="text" placeholder="Nom" formControlName="city">
-      <button>Valider</button>
+      <input type="text" placeholder="Ville" formControlName="city">
+      <button>Rechercher</button>
     </form>
-</div> -->
+</div>
 
 <div class="rides-list">
     <div class="container" *ngFor="let ride of rides">
-        <h3>{{ride.itinary}}</h3>
+        <h3 *ngIf="ride.home_to_office"> De {{ride.street}}, {{ride.city}} à l'IPIPOE </h3>
+        <h3 *ngIf="!ride.home_to_office"> De l'IPIPOE à {{ride.street}}, {{ride.city}}</h3>
         <h4>Départ le {{ride.date.substring(0, 10)}} à {{ride.date.substring(11, 16)}}</h4>
         <p> Nombre de place(s) disponible(s) : {{ride.places}}</p>
-
-
     </div>
 </div>
 
