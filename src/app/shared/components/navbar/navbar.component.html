@@ -1,6 +1,6 @@
 <header>
   <nav>
-    <p>Logo</p>
+    <a routerLink="/"><img src="../../../../assets/img/logo.svg" alt="logo"></a>
     <ul *ngIf="!user">
       <li>
         <a routerLink="trajets">Les trajets</a>
@@ -21,7 +21,7 @@
         <a routerLink="nouveau trajet">Nouveau trajet</a>
       </li>
       <li class="logout" (click)="logout.emit(true)">
-        Déconnexion
+        <a>Déconnexion</a>
       </li>
     </ul>
   </nav>
