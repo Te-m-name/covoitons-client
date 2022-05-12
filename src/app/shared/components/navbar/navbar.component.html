@@ -1,0 +1,28 @@
+<header>
+  <nav>
+    <p>Logo</p>
+    <ul *ngIf="!user">
+      <li>
+        <a routerLink="trajets">Les trajets</a>
+      </li>
+      <li>
+        <a routerLink="connexion">Connexion</a>
+      </li>
+      <li>
+        <a routerLink="inscription">Incription</a>
+      </li>
+    </ul>
+
+    <ul *ngIf="user">
+      <li>
+        <a routerLink="trajets">Les trajets</a>
+      </li>
+      <li>
+        <a routerLink="nouveau trajet">Nouveau trajet</a>
+      </li>
+      <li class="logout" (click)="logout.emit(true)">
+        Déconnexion
+      </li>
+    </ul>
+  </nav>
+</header>
