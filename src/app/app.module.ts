@@ -27,7 +27,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
     SignInComponent,
     SeeARideComponent,
     SeeRidesComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
