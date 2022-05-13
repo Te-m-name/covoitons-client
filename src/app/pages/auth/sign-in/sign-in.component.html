@@ -1,6 +1,6 @@
 <div class="container">
   <form [formGroup]="form" (submit)="submit()" class="container__form">
-    <img src="../../../../assets/img/connexion.svg" alt="logo">
+    <img src="../../../../assets/img/connexion.png" alt="logo">
     <div>
       <input type="email" placeholder="Email" formControlName="email">
       <p *ngIf="form.get('email')?.errors?.['required']&&form.get('email')?.touched">Veuillez renseigner un email</p>
@@ -11,6 +11,6 @@
       passe</p>
     </div>
     <p class="error" *ngIf="error">{{error}}</p>
-    <button class="btn-secondary" [disabled]="!form.valid">Se connecter</button>
+    <button class="btn btn-secondary" [disabled]="!form.valid">Se connecter</button>
   </form>
 </div>

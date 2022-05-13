@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {RidesService} from "../../shared/services/rides.service";
 import {ActivatedRoute, Router} from "@angular/router";
+
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { Observable } from 'rxjs/internal/Observable';
-import {User} from "../../shared/interfaces/user";
-import {AuthService} from "../../shared/services/auth.service";
+import { User } from 'src/app/shared/interfaces/user';
 
 @Component({
   selector: 'app-see-a-ride',
@@ -13,9 +14,12 @@ import {AuthService} from "../../shared/services/auth.service";
 export class SeeARideComponent implements OnInit {
   public ride:any;
   public id?: string | null;
+
   public user$: Observable<User | null> = this.authService.user$.asObservable();
 
-  constructor(private rs: RidesService, private router:Router, private actRoute: ActivatedRoute, private authService:AuthService) { }
+ // public user$ = this.authService.user$;
+  constructor(private rs: RidesService, private router:Router, private actRoute: ActivatedRoute, private authService: AuthService) { }
+
 
   ngOnInit(): void {
 
@@ -35,10 +39,10 @@ export class SeeARideComponent implements OnInit {
     });
   }
 
-  public reservation(ride_id: number){
+  public reservation(ride_id: number) {
 
     let id_user;
-    this.user$.subscribe(user=>{
+    this.user$.subscribe(user => {
       id_user = user?.id;
     });
 
