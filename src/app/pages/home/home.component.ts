@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RideInterface } from 'src/app/shared/interfaces/ride.interface';
+import { RidesService } from 'src/app/shared/services/rides.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  public rides!: [RideInterface];
 
-  constructor() { }
+  constructor(private ridesService: RidesService) { }
 
   ngOnInit(): void {
+  }
+
+  public getRides() {
+    this.ridesService.getRides().subscribe(data => this.rides = data)
   }
 
 }
