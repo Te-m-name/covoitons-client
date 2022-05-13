@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../shared/services/auth.service";
+import {RidesService} from "../../shared/services/rides.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -20,14 +20,14 @@ export class CreateComponent implements OnInit {
   });
   public error!: string;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router:Router) { }
+  constructor(private fb: FormBuilder, private ridesService: RidesService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
   public submit(){
     if (this.form_rides.valid){
-      this.authService.createRide(this.form_rides.getRawValue()).subscribe(()=>{
+      this.ridesService.createRide(this.form_rides.getRawValue()).subscribe(()=>{
         this.router.navigateByUrl("");
       }, (err)=>{
         this.error=err?.error || "error"

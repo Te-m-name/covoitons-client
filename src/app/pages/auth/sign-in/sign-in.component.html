@@ -1,0 +1,16 @@
+<div class="container">
+  <form [formGroup]="form" (submit)="submit()" class="container__form">
+    <img src="../../../../assets/img/connexion.svg" alt="logo">
+    <div>
+      <input type="email" placeholder="Email" formControlName="email">
+      <p *ngIf="form.get('email')?.errors?.['required']&&form.get('email')?.touched">Veuillez renseigner un email</p>
+    </div>
+    <div>
+      <input type="password" placeholder="Mot de passe" formControlName="password">
+      <p *ngIf="form.get('password')?.errors?.['required']&&form.get('password')?.touched">Veuillez renseigner un mot de
+      passe</p>
+    </div>
+    <p class="error" *ngIf="error">{{error}}</p>
+    <button class="btn-secondary" [disabled]="!form.valid">Se connecter</button>
+  </form>
+</div>
