@@ -1,28 +1,16 @@
 <header>
   <nav>
     <a routerLink="/"><img src="../../../../assets/img/logo.svg" alt="logo"></a>
-    <ul *ngIf="!user">
-      <li>
+    <div *ngIf="!user">
         <a routerLink="trajets">Les trajets</a>
-      </li>
-      <li>
-        <a routerLink="connexion">Connexion</a>
-      </li>
-      <li>
-        <a routerLink="inscription">Incription</a>
-      </li>
-    </ul>
+        <a routerLink="connexion">Se connecter</a>
+        <a routerLink="inscription">S'inscrire</a>
+    </div>
 
-    <ul *ngIf="user">
-      <li>
+    <div *ngIf="user">
         <a routerLink="trajets">Les trajets</a>
-      </li>
-      <li>
         <a routerLink="nouveau trajet">Nouveau trajet</a>
-      </li>
-      <li class="logout" (click)="logout.emit(true)">
-        <a>Déconnexion</a>
-      </li>
-    </ul>
+        <a class="logout" (click)="logout.emit(true)">Se déconnecter</a>
+    </div>
   </nav>
 </header>
