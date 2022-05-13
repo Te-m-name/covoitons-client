@@ -25,7 +25,6 @@ export class SignInComponent implements OnInit {
   public submit() {
     if (this.form.valid) {
       this.authService.signIn(this.form.getRawValue()).subscribe((data) => {
-        console.log(data);
         this.router.navigateByUrl('/');
       },
       (err) => {

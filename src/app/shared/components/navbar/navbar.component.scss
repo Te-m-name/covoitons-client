@@ -1,3 +1,36 @@
+@import '../../../../styles.scss';
+
+nav {
+  background-color: $secondary-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  img {
+    width: 15em;
+    margin: .3em 2em;
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      margin: 0 2em;
+
+      a {
+        color: white;
+        font-size: 1.2em;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+      
+    }
+  }
+}
+
 .logout {
   cursor: pointer;
 }

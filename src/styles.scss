@@ -1,14 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
-$primary-color: #a64c89;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$primary-color: #038491;
 $secondary-color: #EE6C4D;
-/* $third-color: #;
-$fourth-color: ;
-$fifth-color: ;
-$sixth-color: ; */
+$third-color: #98C1D9;
+$dark-color: #293241;
+$light-color: #E0FBFC;
 
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {font-size: 100%;}
+body {font-size: .85em;}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: $secondary-color;
+    border: none;
+    border-radius: 1.5em;
+    font-size: 1.2em;
+    color: white;
+    padding: 1em 1.8em;
+    transition: 0.8s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $primary-color;
+    }
 }
