@@ -28,4 +28,8 @@ export class RidesService {
     return this.http.get("http://localhost:8080/ride/searchCity/" + city);
   }
 
+  public getLastRides(): Observable<any>{
+    return this.http.get("http://localhost:8080/ride/getLast");
+  }
+
 }

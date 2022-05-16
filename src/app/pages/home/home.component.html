@@ -33,10 +33,9 @@
   </section>
   <section class="container__rides">
     <h2>Les derniers trajets</h2>
+    <div>
+      <app-card-light [ride]="ride" *ngFor="let ride of rides"></app-card-light>
+    </div>
   </section>
-</div>
-
-<div class="container-blue">
-  
 </div>
 

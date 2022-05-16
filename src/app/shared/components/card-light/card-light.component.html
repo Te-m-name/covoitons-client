@@ -1,10 +1,10 @@
 <article>
-  <p>{{ride.date}}</p>
+  <p>Mardi 23 mai</p>
   <div *ngIf="ride.home_to_office">
     <p>{{ride.city}}</p>
     <p>Entreprise</p>
   </div>
-  <div *ngIf="ride.home_to_office">
+  <div *ngIf="!ride.home_to_office">
     <p>Entreprise</p>
     <p>{{ride.city}}</p>
   </div>

@@ -13,10 +13,11 @@ export class HomeComponent implements OnInit {
   constructor(private ridesService: RidesService) { }
 
   ngOnInit(): void {
+    this.getRides();
   }
 
   public getRides() {
-    this.ridesService.getRides().subscribe(data => this.rides = data)
+    this.ridesService.getLastRides().subscribe(data => this.rides = data)
   }
 
 }
