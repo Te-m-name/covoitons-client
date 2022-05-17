@@ -25,15 +25,15 @@ export class SeeRidesComponent implements OnInit {
   constructor(private rs: RidesService, private fb: FormBuilder, private router : Router) { }
 
   ngOnInit(): void {
-    if (this.rides$) {
-      this.rides$.subscribe(data => {
+    this.rides$.subscribe(data => {
+      if (data) {
         this.rides = data
-      })
-    } else {
-      this.rs.getRides().subscribe(data => {
-        this.rides = data
-      })
-    }
+      } else {
+        this.getAllRides()
+      }  
+    })
+
+    console.log(this.rides)
     
   }
 
@@ -43,5 +43,11 @@ export class SeeRidesComponent implements OnInit {
         this.rides = data;
       })
     }
+  }
+
+  public getAllRides() {
+    this.rs.getRides().subscribe((data) => {
+      this.rides = data;
+    })
   }
 }

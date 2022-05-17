@@ -43,4 +43,8 @@ export class RidesService {
     return this.http.get("http://localhost:8080/ride/getLast");
   }
 
+  public resetRidesSearch() {
+    this.rides$ = new BehaviorSubject<RideInterface | null>(null);
+  }
+
 }

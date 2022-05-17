@@ -36,4 +36,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  public ridesReset() {
+    this.ridesService.resetRidesSearch()
+    this.router.navigateByUrl("/trajets");
+  }
+
 }
