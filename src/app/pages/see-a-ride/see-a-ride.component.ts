@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RidesService} from "../../shared/services/rides.service";
 import {ActivatedRoute, Router} from "@angular/router";
+
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { User } from 'src/app/shared/interfaces/user';
@@ -13,8 +14,12 @@ import { User } from 'src/app/shared/interfaces/user';
 export class SeeARideComponent implements OnInit {
   public ride:any;
   public id?: string | null;
-  public user$ = this.authService.user$;
+
+  public user$: Observable<User | null> = this.authService.user$.asObservable();
+
+ // public user$ = this.authService.user$;
   constructor(private rs: RidesService, private router:Router, private actRoute: ActivatedRoute, private authService: AuthService) { }
+
 
   ngOnInit(): void {
 
@@ -34,9 +39,19 @@ export class SeeARideComponent implements OnInit {
     });
   }
 
-  public reservation() {
-    this.user$.subscribe((data) => {
-      console.log(data)
-    })
+  public reservation(ride_id: number) {
+
+    let id_user: any;
+    this.user$.subscribe(user => {
+      id_user = user?.id;
+    });
+
+    console.log(id_user);
+    console.log(ride_id);
+
+    this.rs.setReservation(id_user, ride_id).subscribe(()=>{
+      this.router.navigateByUrl("");
+    });
+
   }
 }

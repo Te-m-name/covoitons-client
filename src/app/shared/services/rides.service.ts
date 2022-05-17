@@ -25,7 +25,7 @@ export class RidesService {
   public createRide(ride: RideInterface): Observable<any> {
     return this.http.post("http://localhost:8080/ride/add", ride);
   }
-  
+
   public getARide(id: string | null | undefined): Observable<any>{
     return this.http.get("http://localhost:8080/ride/getARide/"+ id);
   }
@@ -45,6 +45,12 @@ export class RidesService {
 
   public resetRidesSearch() {
     this.rides$ = new BehaviorSubject<RideInterface | null>(null);
+  }
+
+  public setReservation(user_id: number, ride_id: number): Observable<any> {
+    return this.http.post("http://localhost:8080/reservation/reservationRide", {
+      user_id,
+      ride_id});
   }
 
 }
