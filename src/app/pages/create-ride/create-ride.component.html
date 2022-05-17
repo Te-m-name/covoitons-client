@@ -1,26 +1,42 @@
-<div>
-  <h2>Créer un trajet</h2>
-  <form [formGroup]="form_rides" (submit)="submit()">
-    <input type="text" placeholder="Rue" formControlName="street">
-    <p *ngIf="form_rides.get('street')?.errors?.['required']&&form_rides.get('street')?.touched">Veuillez renseigner une rue</p>
-    <input type="text" placeholder="Code Postal" formControlName="post_code">
-    <p *ngIf="form_rides.get('post_code')?.errors?.['required']&&form_rides.get('post_code')?.touched">Veuillez renseigner une rue</p>
-    <input type="text" placeholder="Ville" formControlName="city">
-    <p *ngIf="form_rides.get('city')?.errors?.['required']&&form_rides.get('city')?.touched">Veuillez renseigner une ville</p>
-    <input type="datetime-local" placeholder="Date du trajet" formControlName="date">
-    <p *ngIf="form_rides.get('date')?.errors?.['required']&&form_rides.get('date')?.touched">Veuillez renseigner une date</p>
-    <fieldset>
-      <div>
-        <input type="radio" name="home_to_office" value="true" id="forth" formControlName="home_to_office">
-        <label for="forth">Aller</label>
+<div class="container">
+  <section class="container__hero">
+
+    <form [formGroup]="form_rides" (submit)="submit()">
+      <h2>Ajouter un trajet</h2>
+      <input type="text" placeholder="Rue" formControlName="street" required>
+      <p *ngIf="form_rides.get('street')?.errors?.['required']&&form_rides.get('street')?.touched">Veuillez renseigner une rue</p>
+      <div class="demi_container">
+        <div>
+          <input type="text" placeholder="Code Postal" formControlName="post_code" required>
+          <p *ngIf="form_rides.get('post_code')?.errors?.['required']&&form_rides.get('post_code')?.touched">Veuillez renseigner un code postal</p>
+        </div>
+        <div>
+          <input type="text" placeholder="Ville" formControlName="city" required>
+          <p *ngIf="form_rides.get('city')?.errors?.['required']&&form_rides.get('city')?.touched">Veuillez renseigner une ville</p>
+        </div>
       </div>
-      <div>
-        <input type="radio" name="home_to_office" value="false" id="back" formControlName="home_to_office">
-        <label for="back">Retour</label>
+      <input type="datetime-local" placeholder="Date du trajet" formControlName="date" required>
+      <p *ngIf="form_rides.get('date')?.errors?.['required']&&form_rides.get('date')?.touched">Veuillez renseigner une date et une heure</p>
+      <div class="demi_container">
+        <fieldset class="container__hero__radio">
+          <div>
+            <input type="radio" name="home_to_office" value="true" id="forth" formControlName="home_to_office" required>
+            <label for="forth">Aller</label>
+          </div>
+          <div>
+            <input type="radio" name="home_to_office" value="false" id="back" formControlName="home_to_office">
+            <label for="back">Retour</label>
+          </div>
+        </fieldset>
       </div>
-    </fieldset>
-    <input type="number" placeholder="Nombre de places" formControlName="places">
-    <p *ngIf="form_rides.get('places')?.errors?.['required']&&form_rides.get('places')?.touched">Veuillez renseigner un nombre de places</p>
-    <button>Valider</button>
-  </form>
+      <div class="demi_container">
+        <input type="number" placeholder="Nombre de places" formControlName="places" required>
+      </div>
+      <div class="demi_container">
+        <p *ngIf="form_rides.get('places')?.errors?.['required']&&form_rides.get('places')?.touched">Veuillez renseigner un nombre de places</p>
+      </div>
+      <button class="btn btn-primary">Publier</button>
+
+    </form>
+  </section>
 </div>
