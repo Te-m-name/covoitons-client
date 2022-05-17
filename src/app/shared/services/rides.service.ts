@@ -19,13 +19,19 @@ export class RidesService {
   public createRide(ride: RideInterface): Observable<any> {
     return this.http.post("http://localhost:8080/ride/add", ride);
   }
-  
+
   public getARide(id: string | null | undefined): Observable<any>{
     return this.http.get("http://localhost:8080/ride/getARide/"+ id);
   }
 
   public searchRideByCity(city: string): Observable<any> {
     return this.http.get("http://localhost:8080/ride/searchCity/" + city);
+  }
+
+  public setReservation(user_id: number, ride_id: number): Observable<any> {
+    return this.http.post("http://localhost:8080/reservation/reservationRide", {
+      user_id,
+      ride_id});
   }
 
 }
