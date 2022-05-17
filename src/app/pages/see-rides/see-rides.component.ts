@@ -14,6 +14,7 @@ import { RideInterface } from 'src/app/shared/interfaces/ride.interface';
 })
 export class SeeRidesComponent implements OnInit {
   public rides$: Observable<RideInterface | null> = this.rs.rides$.asObservable();
+  public loading = false;
 
   rides: any = [];
   public form: FormGroup = this.fb.group({
@@ -25,22 +26,24 @@ export class SeeRidesComponent implements OnInit {
   constructor(private rs: RidesService, private fb: FormBuilder, private router : Router) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.rides$.subscribe(data => {
       if (data) {
-        this.rides = data
+        this.rides = data;
+        this.loading = false;
       } else {
         this.getAllRides()
-      }  
-    })
-
-    console.log(this.rides)
-    
+      }
+    }) 
   }
 
   public submit() {
     if (this.form.valid) {
+      this.loading = true;
+      
       this.rs.searchRideByCity(this.form.getRawValue()).subscribe((data) => {
         this.rides = data;
+        this.loading = false;
       })
     }
   }
@@ -48,6 +51,7 @@ export class SeeRidesComponent implements OnInit {
   public getAllRides() {
     this.rs.getRides().subscribe((data) => {
       this.rides = data;
+      this.loading = false;
     })
   }
 }
