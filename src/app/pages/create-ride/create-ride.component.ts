@@ -27,8 +27,12 @@ export class CreateComponent implements OnInit {
 
   public submit(){
     if (this.form_rides.valid){
-      this.ridesService.createRide(this.form_rides.getRawValue()).subscribe(()=>{
+      const newRide = {
+        ...this.form_rides.getRawValue(),
+        departure_date: this.form_rides.getRawValue().date.split('T')[0]
+      }
 
+      this.ridesService.createRide(newRide).subscribe(()=>{
         this.router.navigateByUrl("");
       }, (err)=>{
         this.error=err?.error || "error"

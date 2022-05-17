@@ -26,6 +26,7 @@ export class AuthService {
       tap((token: any) => {
         if (token) {
           this.cookieService.set("access_token", token.access_token);
+          this.fetchCurrentUser()
         }
       })
     );
@@ -35,7 +36,6 @@ export class AuthService {
     return this.http.get<User>(`${this.url}user/current-user`).pipe((
       tap((user: User) => {
         this.user$.next(user);
-        console.log(this.user$);
       })
     ))
   }

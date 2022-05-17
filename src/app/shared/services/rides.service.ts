@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';
+import { tap } from 'rxjs/operators';
 import { RideInterface } from '../interfaces/ride.interface';
 
 
@@ -8,6 +10,10 @@ import { RideInterface } from '../interfaces/ride.interface';
   providedIn: 'root'
 })
 export class RidesService {
+
+  public rides$: BehaviorSubject<RideInterface | null> = new BehaviorSubject<RideInterface | null>(
+    null
+  );
 
   constructor(private http:HttpClient) { }
 
@@ -24,8 +30,21 @@ export class RidesService {
     return this.http.get("http://localhost:8080/ride/getARide/"+ id);
   }
 
-  public searchRideByCity(city: string): Observable<any> {
-    return this.http.get("http://localhost:8080/ride/searchCity/" + city);
+  public searchRideByCity(form: any): Observable<any> {
+    return this.http.get(`http://localhost:8080/ride/get?city=${form.city}&home_to_office=${form.home_to_office}&date=${form.date}`).pipe(
+      tap((rides: any) => {
+        this.rides$.next(rides);
+        console.log(this.rides$);
+      })
+    )
+  }
+
+  public getLastRides(): Observable<any>{
+    return this.http.get("http://localhost:8080/ride/getLast");
+  }
+
+  public resetRidesSearch() {
+    this.rides$ = new BehaviorSubject<RideInterface | null>(null);
   }
 
   public setReservation(user_id: number, ride_id: number): Observable<any> {
