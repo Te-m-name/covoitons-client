@@ -4,29 +4,34 @@ nav {
   background-color: $secondary-color;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
+  height: 100%;
 
   img {
     width: 15em;
     margin: .3em 2em;
   }
 
-  ul {
+  div {
     display: flex;
+    align-items: center;
+    min-height: 100%;
 
-    li {
-      margin: 0 2em;
+    a {
+      display: flex;
+      align-items: center;
+      margin: 0 1.5em;
+      color: white;
+      font-size: 1.2em;
+      height: 100%;
+      transition: 0.2s;
+      border-bottom: 4px solid transparent;
+      padding: 0 1em;
 
-      a {
-        color: white;
-        font-size: 1.2em;
-
-        &:hover {
-          color: $primary-color;
-        }
+      &:hover {
+        color: $light-color;
+        border-bottom: 4px solid $light-color;
       }
-      
     }
   }
 }

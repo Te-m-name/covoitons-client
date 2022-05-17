@@ -2,6 +2,7 @@
   <div class="child">
     <p class="title">Proposé par <span>{{ride.firstname}} Didier</span></p>
 
+<<<<<<< HEAD
     <p>Départ <span>{{ride.departure}}</span></p>
     <p>Arrivée <span>{{ride.arrival}}</span></p>
     <p>Heure de départ <span>{{ride.date.substring(11, 16)}}</span></p>
@@ -10,6 +11,16 @@
       <button routerLink="/trajets">Retour</button>
       <button>Réserver</button>
     </div>
+=======
+  <p>Départ :  {{ride.departure}}</p>
+  <p>Arrivée : {{ride.arrival}}</p>
+  <p>Heure de départ : {{ride.date.substring(11, 16)}}</p>
+  <p>Place(s) restante(s) : {{ride.places}}</p>
+  <div>
+    <button>Retour</button>
+    <button (click)="reservation()">Réserver</button>
+  </div>
+>>>>>>> develop
   </div>
 
 </div>
