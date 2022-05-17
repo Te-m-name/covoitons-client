@@ -53,7 +53,7 @@
       }
   
       input[type="text"],
-      input[type="datetime"] {
+      input[type="date"] {
         border: none;
         border-radius: 2em;
         width: 20em;
@@ -66,8 +66,9 @@
         &:focus {
           outline: 2px solid $secondary-color;
         }
-        
       }
+      ::-webkit-datetime-edit-fields-wrapper { color: rgb(113, 113, 113); }
+      ::-webkit-calendar-picker-indicator { margin-right: 1.2em; }
     }
   }
 

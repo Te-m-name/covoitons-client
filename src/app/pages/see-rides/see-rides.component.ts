@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { RidesService } from '../../shared/services/rides.service';
 import {Router} from "@angular/router";
+import { Observable } from 'rxjs/internal/Observable';
+import { RideInterface } from 'src/app/shared/interfaces/ride.interface';
 
 
 @Component({
@@ -11,24 +13,29 @@ import {Router} from "@angular/router";
   styleUrls: ['./see-rides.component.scss']
 })
 export class SeeRidesComponent implements OnInit {
+  public rides$: Observable<RideInterface | null> = this.rs.rides$.asObservable();
 
   rides: any = [];
   public form: FormGroup = this.fb.group({
-    city: [""]
+    city: ['', Validators.required],
+    home_to_office: ['', Validators.required],
+    date: ['', Validators.required]
   });
 
   constructor(private rs: RidesService, private fb: FormBuilder, private router : Router) { }
 
   ngOnInit(): void {
 
-    this.rs.getRides().subscribe(data =>
-      this.rides = data)
+    this.rides$.subscribe(data => {
+      this.rides = data
+    })
   }
 
   public submit() {
-    this.rs.searchRideByCity(this.form.value.city).subscribe(data =>{
-      console.log(data[0]);
-      this.rides = data
-    });
+    if (this.form.valid) {
+      this.rs.searchRideByCity(this.form.getRawValue()).subscribe((data) => {
+        this.rides = data;
+      })
+    }
   }
 }
