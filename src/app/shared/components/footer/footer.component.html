@@ -2,13 +2,19 @@
   <section>
     <div>
       <h3>Covoitons</h3>
-      <a href="">Qui somme nous ?</a>
-      <a href="">Créer un trajet</a>
+      <a routerLink="trajets">Rechercher un trajet</a>
+      <a *ngIf="user" routerLink="nouveau">Créer un trajet</a>
+      <a href="">FAQ</a>
     </div>
-    <div>
+    <div *ngIf="user">
       <h3>Compte</h3>
       <a href="">Gérer son compte</a>
       <a href="">Mes futurs trajets</a>
+    </div>
+    <div *ngIf="!user">
+      <h3>Compte</h3>
+      <a routerLink="connexion">Se connecter</a>
+      <a routerLink="inscription">S'inscrire</a>
     </div>
   </section>
   <p class="company">©Orange pixel</p>
