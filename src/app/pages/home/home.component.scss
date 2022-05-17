@@ -106,15 +106,42 @@
     align-items: center;
     color: white;
     min-height: 400px;
-    
+
+    &__link {
+      position: relative;
+      top: -2em;
+      right: 7em;
+      font-size: 1.4em;
+      color: white;
+      display: inline-block;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #ffffff;
+        transform-origin: center;
+        transition: transform 0.25s ease-out;
+      }
+
+      &:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom;
+      }
+    }
 
     h2 {
       font-size: 2.5em;
       font-weight: bold;
-      margin-bottom: 2em;
+      margin-bottom: 2.5em;
     }
 
-    div {
+    &__cards {
       display: flex;
       justify-content: center;
       align-items: flex-start;

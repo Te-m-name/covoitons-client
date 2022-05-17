@@ -25,10 +25,16 @@ export class SeeRidesComponent implements OnInit {
   constructor(private rs: RidesService, private fb: FormBuilder, private router : Router) { }
 
   ngOnInit(): void {
-
-    this.rides$.subscribe(data => {
-      this.rides = data
-    })
+    if (this.rides$) {
+      this.rides$.subscribe(data => {
+        this.rides = data
+      })
+    } else {
+      this.rs.getRides().subscribe(data => {
+        this.rides = data
+      })
+    }
+    
   }
 
   public submit() {

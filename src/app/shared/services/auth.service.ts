@@ -26,6 +26,7 @@ export class AuthService {
       tap((token: any) => {
         if (token) {
           this.cookieService.set("access_token", token.access_token);
+          this.fetchCurrentUser()
         }
       })
     );
