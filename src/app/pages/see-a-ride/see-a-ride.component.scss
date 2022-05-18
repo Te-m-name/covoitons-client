@@ -1,11 +1,14 @@
 @import "src/styles";
 
 .container {
+  background-image: url("../../../assets/img/ride.png");
+  //background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  //background-color: $primary-color;
 
     .child {
       display: flex;
@@ -13,7 +16,8 @@
       flex-direction: column;
       height: 30em;
       width: 50em;
-      background-color: rgba(229, 229, 229, 0.70);
+      //background-color: rgba(229, 229, 229, 0.70);
+      background-color: rgba(215, 229, 238, 0.9);
       border-radius: 2em;
       padding:5em;
 
@@ -30,7 +34,7 @@
 
       span {
         font-weight: bold;
-        color: #053959FF;
+        color: $four-color;
         margin-left: 2em;
       }
 
@@ -44,17 +48,18 @@
         justify-content: space-around;
         margin-top: 1.75em;
 
+        /*
         button {
           border-radius: 1em;
           border-style: none;
           cursor:pointer;
-          background-color: #053959FF;
+          background-color: $four-color;
           color: rgb(255, 255, 255);
           height: 2.3em;
           width: 9em;
           font-weight: bold;
           font-size: 1.25em;
-        }
+        } */
       }
     }
   }
