@@ -1,4 +1,5 @@
 export interface RideInterface {
+  id_ride: number;
   street: string;
   post_code: number;
   city: string;
