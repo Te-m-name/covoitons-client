@@ -1,0 +1,41 @@
+@import "../../../../styles.scss";
+
+.rides-list {
+    text-align: center;
+
+    & .container {
+    background-color: $primary-color;
+    color: white;
+
+    border-radius: 2em;
+    width: 50%;
+    margin: 2em;
+    padding: 2em;
+
+    & .up {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & .pilot {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            & img {
+                width: 10em;
+                height: 10em;
+                border-radius: 20em;
+                padding: 1em;
+            }
+        }
+    }
+
+    & .down {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    }
+}
