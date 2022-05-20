@@ -1,15 +1,18 @@
 <div class="container">
 
-  <div class="child">
-    <p class="title">Proposé par <span>{{ride.driverFirstname}} Didi</span></p>
-    <p>Départ <span>{{ride.departure}}</span></p>
-    <p>Arrivée <span>{{ride.arrival}}</span></p>
-    <p>Heure de départ <span>{{ride.date.substring(11, 16)}}</span></p>
-    <p>Place(s) restante(s) <span>{{ride.places}}</span></p>
+  <div class="child" *ngIf="ride">
+
+    <p class="title">Proposé par <span>{{ride.driverFirstname}}</span></p>
+    <p>Départ <span class="my-span">{{ride.departure}}</span></p>
+    <p>Arrivée <span class="my-span">{{ride.arrival}}</span></p>
+    <p>Heure de départ <span class="my-span">{{ride.date}}</span></p>
+    <p>Place<span *ngIf="ride.places > 1">(s)</span> restante<span *ngIf="ride.places > 1">(s)</span> <span class="my-span">{{ride.places}}</span></p>
+
     <div class="custom-btn">
       <button class="btn btn-primary" routerLink="/trajets">Retour</button>
       <button class="btn btn-primary">Réserver</button>
     </div>
+
   </div>
 
 </div>

@@ -1,14 +1,14 @@
 @import "src/styles";
 
 .container {
-  background-image: url("../../../assets/img/ride.png");
+  background-image: url("../../../assets/img/fond-home.svg");
   //background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 92.5vh;
 
     .child {
       display: flex;
@@ -32,7 +32,7 @@
         }
       }
 
-      span {
+      .my-span {
         font-weight: bold;
         color: $four-color;
         margin-left: 2em;

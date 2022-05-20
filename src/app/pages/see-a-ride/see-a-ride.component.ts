@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { User } from 'src/app/shared/interfaces/user';
+import {RideInterface} from "../../shared/interfaces/ride.interface";
 
 @Component({
   selector: 'app-see-a-ride',
@@ -12,7 +13,7 @@ import { User } from 'src/app/shared/interfaces/user';
   styleUrls: ['./see-a-ride.component.scss']
 })
 export class SeeARideComponent implements OnInit {
-  public ride:any;
+  public ride!: RideInterface;
   public id?: string | null;
 
   public user$: Observable<User | null> = this.authService.user$.asObservable();
@@ -25,7 +26,6 @@ export class SeeARideComponent implements OnInit {
 
     this.actRoute.paramMap.subscribe(res => {
       this.id = res.get('id');
-      console.log(this.id);
     });
     this.getARide();
   }
@@ -33,6 +33,7 @@ export class SeeARideComponent implements OnInit {
   public getARide(){
     this.rs.getARide(this.id).subscribe( data => {
       this.ride = data;
+      console.log(this.ride);
     });
   }
 
