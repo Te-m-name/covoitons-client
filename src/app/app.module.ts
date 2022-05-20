@@ -16,6 +16,7 @@ import { AuthInterceptor } from './helpers/auth.interceptors';
 import { SeeARideComponent } from './pages/see-a-ride/see-a-ride.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { CardLightComponent } from './shared/components/card-light/card-light.component';
+import { AdminComponent } from './pages/admin/admin/admin.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CardLightComponent } from './shared/components/card-light/card-light.co
     SeeARideComponent,
     SeeRidesComponent,
     NavbarComponent,
-    CardLightComponent
+    CardLightComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
