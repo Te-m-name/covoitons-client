@@ -1,0 +1,15 @@
+<div class="rides-list">
+    <div class="container" *ngFor="let ride of rides">
+        <div class="up">
+            <h3>{{ride.date.substring(0, 10)}}</h3>
+        </div>
+        <div class="down">
+            <div class="itinary" *ngIf="ride.home_to_office">
+                <h3>{{ride.date.substring(11, 16)}} - IPI POE → ETA - {{ride.city}}</h3>
+            </div>
+            <div class="itinary" *ngIf="!ride.home_to_office">
+                <h3>{{ride.date.substring(11, 16)}} - {{ride.city}} → ETA - IPI POE</h3>
+            </div>
+            <button> Annuler </button>
+    </div>
+</div>
