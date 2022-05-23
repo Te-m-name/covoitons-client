@@ -17,6 +17,10 @@ import { SeeARideComponent } from './pages/see-a-ride/see-a-ride.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { CardLightComponent } from './shared/components/card-light/card-light.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { UserAccountComponent } from './pages/user-account/user-account.component';
+import { UserBookedRideComponent } from './shared/components/user-booked-ride/user-booked-ride.component';
+import { UserProposedRideComponent } from './shared/components/user-proposed-ride/user-proposed-ride.component';
+import { UserInfosComponent } from './shared/components/user-infos/user-infos.component';
 
 
 @NgModule({
@@ -31,7 +35,11 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     SeeRidesComponent,
     NavbarComponent,
     CardLightComponent,
-    FooterComponent
+    FooterComponent,
+    UserAccountComponent,
+    UserBookedRideComponent,
+    UserProposedRideComponent,
+    UserInfosComponent
   ],
   imports: [
     BrowserModule,

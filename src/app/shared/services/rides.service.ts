@@ -53,4 +53,16 @@ export class RidesService {
       ride_id});
   }
 
+  public getBookedRides(user: number): Observable<any> {
+    return this.http.get(`http://localhost:8080/ride/bookedRides/${user}`);
+  }
+
+  public getProposedRides(user: number): Observable<any> {
+    return this.http.get(`http://localhost:8080/ride/proposedRides/${user}`);
+  }
+
+  public getNextRide(user: number): Observable<any> {
+    return this.http.get(`http://localhost:8080/ride/getNextRide/${user}`);
+  }
+
 }
