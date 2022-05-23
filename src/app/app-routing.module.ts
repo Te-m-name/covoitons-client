@@ -8,6 +8,7 @@ import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 import { DataUserGuard } from './shared/guards/data-user.guard';
 import { SeeARideComponent } from './pages/see-a-ride/see-a-ride.component';
 import {AdminComponent} from "./pages/admin/admin/admin.component";
+import { UserAccountComponent } from './pages/user-account/user-account.component';
 
 const routes: Routes = [
   {path: "", canActivate: [DataUserGuard], component:HomeComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: "trajet/:id", canActivate: [DataUserGuard], component:SeeARideComponent},
   {path: "nouveau", canActivate: [DataUserGuard], component:CreateComponent},
   {path: "rechercher", canActivate: [DataUserGuard], component:SeeRidesComponent},
-  {path: "admin", canActivate: [DataUserGuard], component:AdminComponent}
+  {path: "admin", canActivate: [DataUserGuard], component:AdminComponent},
+  {path: "mon-compte", canActivate: [DataUserGuard], component:UserAccountComponent}
 ];
 
 @NgModule({
