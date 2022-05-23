@@ -1,15 +1,75 @@
 @import "../../../styles.scss";
 
-.rides-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .container {
-    background-color: #038491;
-    width: 50%;
-    margin: 2em;
-    border-radius: 2em;
-    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../../../assets/img/fond-rides.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0 -20px;
+    height: 100%;
+    
+    form {
+        margin-top: 5em;
+        background-color: rgba(152, 193, 217, 0.9);
+        padding: 2em 2em;
+        border-radius: 3em;
+        display: flex;
+        align-items: center;
+        color: $dark-color;
+    
+        h2 {
+            margin-bottom: 1.2em;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+    
+        .container__hero__radio {
+            display: flex;
+            justify-content: space-around;
+            margin-right: 0.5em;
+    
+            label {
+                font-size: 1.3em;
+                margin-left: 0.5em;
+            }
+    
+            input[type="radio"] {
+                width: 1.8em;
+                height: 1.8em;
+            }
+    
+            div {
+                display: flex;
+                align-items: center;
+                margin: 0 0.5em;
+            }
+        }
+    
+        input[type="text"],
+        input[type="date"] {
+            border: none;
+            border-radius: 2em;
+            width: 10em;
+            height: 2.8em;
+            padding-left: 1.4em;
+            outline: none;
+            margin: 0 1em;
+            font-size: 1.3em;
+    
+            &:focus {
+                outline: 2px solid $secondary-color;
+            }
+        }
+        ::-webkit-datetime-edit-fields-wrapper { color: rgb(113, 113, 113); }
+        ::-webkit-calendar-picker-indicator { margin-right: 1.2em; }
+    }
+
+    &__rides {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

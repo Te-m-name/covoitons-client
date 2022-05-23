@@ -1,32 +1,33 @@
 <div class="container">
     <form [formGroup]="form" (submit)="submit()" class="container__form">
-        <h2>Rechercher un trajet</h2>
         <input type="text" placeholder="Ville" formControlName="city">
-        <input type="date" placeholder="Date" formControlName="date">
         <div class="container__hero__radio">
             <div>
-                <label for="aller">Aller</label>
                 <input type="radio" formControlName="home_to_office" value="true">
+                <label for="aller">Aller</label>
             </div>
             <div>
-                <label for="retour">Retour</label>
                 <input type="radio" formControlName="home_to_office" value="false">
+                <label for="retour">Retour</label>
             </div>
         </div>
+        <input type="date" placeholder="Date" formControlName="date">
         <button class="btn btn-primary">Rechercher</button>
     </form>
-</div>
 
-<div class="rides-list">
-    <p *ngIf="(!rides || rides.length === 0) && !loading">Aucune correspondance trouvée</p>
-    <p *ngIf="loading">Chargement...</p>
-    <div class="container" *ngFor="let ride of rides">
-        <h3> De {{ride.departure}} à {{ride.arrival}}</h3>
-        <h4>Départ le {{ride.date.substring(0, 10)}} à {{ride.date.substring(11, 16)}}</h4>
-        <p> Nombre de place(s) disponible(s) : {{ride.places}}</p>
-        <button [routerLink]="['/trajet',ride.id_ride]">Voir </button>
-
+    <div class="container__rides">
+        <p *ngIf="(!rides || rides.length === 0) && !loading">Aucune correspondance trouvée</p>
+        <p *ngIf="loading">Chargement...</p>
+        <div class="container__rides__list" *ngFor="let ride of rides">
+            <h3> De {{ride.departure}} à {{ride.arrival}}</h3>
+            <h4>Départ le {{ride.date.substring(0, 10)}} à {{ride.date.substring(11, 16)}}</h4>
+            <p> Nombre de place(s) disponible(s) : {{ride.places}}</p>
+            <button [routerLink]="['/trajet',ride.id_ride]">Voir </button>
+    
+        </div>
     </div>
 </div>
+
+
 
 
