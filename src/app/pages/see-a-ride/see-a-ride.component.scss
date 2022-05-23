@@ -14,15 +14,15 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
-      height: 30em;
-      width: 50em;
-      //background-color: rgba(229, 229, 229, 0.70);
-      background-color: rgba(215, 229, 238, 0.9);
+      height: 35em;
+      width: 55em;
+      background-color: rgba(215, 229, 238, 0.8);
       border-radius: 2em;
-      padding:5em;
+      padding:6em;
 
       .title {
-        font-size: 2.4em;
+
+        font-size: 2.2em;
         color: rgb(0, 0, 0);
         margin-bottom: 1.75em;
 
@@ -47,19 +47,6 @@
         display: flex;
         justify-content: space-around;
         margin-top: 1.75em;
-
-        /*
-        button {
-          border-radius: 1em;
-          border-style: none;
-          cursor:pointer;
-          background-color: $four-color;
-          color: rgb(255, 255, 255);
-          height: 2.3em;
-          width: 9em;
-          font-weight: bold;
-          font-size: 1.25em;
-        } */
       }
     }
   }

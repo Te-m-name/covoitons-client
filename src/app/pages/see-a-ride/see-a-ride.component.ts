@@ -33,7 +33,6 @@ export class SeeARideComponent implements OnInit {
   public getARide(){
     this.rs.getARide(this.id).subscribe( data => {
       this.ride = data;
-      console.log(this.ride);
     });
   }
 
