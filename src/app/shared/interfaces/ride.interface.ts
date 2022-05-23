@@ -7,4 +7,8 @@ export interface RideInterface {
   home_to_office: boolean;
   places: number;
   id_user: number;
+  driverFirstname: string;
+  driverLastname: string;
+  departure: string;
+  arrival: string;
 }
