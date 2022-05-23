@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="left-panel">
+        <img class="picture" src="../../../assets/img/cutegoldendog-1652637928757-890.jpg">
+        <p>{{user.firstname}} {{user.lastname}}</p>
+
+        <a (click)="seeInfos()">Mes informations</a>
+
+        <div class="routes">
+            <a>Mes trajets</a>
+            <a (click)="seeBookedRides()">Mes trajets réservés</a>
+            <a (click)="seeProposedRides()">Mes trajets proposés</a>
+        </div>
+    </div>
+
+    <div class="right-panel" *ngIf="infos">
+        <app-user-infos [user]="user"></app-user-infos>
+    </div>
+
+    <div class="right-panel" *ngIf="bookedRides">
+        <app-user-booked-ride [user]="user"></app-user-booked-ride>
+    </div>
+
+    <div class="right-panel" *ngIf="proposedRides">
+        <app-user-proposed-ride [user]="user"></app-user-proposed-ride>
+    </div>
+ </div>
