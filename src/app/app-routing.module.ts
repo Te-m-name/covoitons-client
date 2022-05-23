@@ -7,6 +7,7 @@ import {CreateComponent} from "./pages/create-ride/create-ride.component";
 import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 import { DataUserGuard } from './shared/guards/data-user.guard';
 import { SeeARideComponent } from './pages/see-a-ride/see-a-ride.component';
+import {AdminComponent} from "./pages/admin/admin/admin.component";
 
 const routes: Routes = [
   {path: "", canActivate: [DataUserGuard], component:HomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: "trajets", canActivate: [DataUserGuard], component:SeeRidesComponent},
   {path: "trajet/:id", canActivate: [DataUserGuard], component:SeeARideComponent},
   {path: "nouveau", canActivate: [DataUserGuard], component:CreateComponent},
-  {path: "rechercher", canActivate: [DataUserGuard], component:SeeRidesComponent}
+  {path: "rechercher", canActivate: [DataUserGuard], component:SeeRidesComponent},
+  {path: "admin", canActivate: [DataUserGuard], component:AdminComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,17 @@
+<div>
+  <div>
+    <button (click)="getAllUsers()">Liste des utilisateurs</button>
+    <button (click)="getAllRides()">Liste des trajets</button>
+  </div>
+  <div>
+    <div class="container" *ngFor="let user of results">
+      <h3> De {{user.firstname}} {{user.lastname}}</h3>
+      <h3> De {{user.email}} {{user.id}}</h3>
+      <h3>{{user.employee_code}}</h3>
+    </div>
+    <div class="container" *ngFor="let ride of results">
+      <h3> De {{ride.street}} {{ride.post_code}}</h3>
+      <h3> De {{ride.city}} {{ride.id_ride}}</h3>
+    </div>
+  </div>
+</div>
