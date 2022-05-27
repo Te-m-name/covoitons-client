@@ -26,9 +26,10 @@ export class SignUpComponent implements OnInit {
   }
 
   public submit(){
+    console.log(this.form)
     if (this.form.valid){
       this.authService.signUp(this.form.getRawValue()).subscribe(()=>{
-        this.router.navigateByUrl("");
+        this.router.navigateByUrl("/confirm");
       }, (err)=>{
         this.error=err?.error || "error"
       })

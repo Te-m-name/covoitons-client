@@ -21,6 +21,7 @@ import { UserAccountComponent } from './pages/user-account/user-account.componen
 import { UserBookedRideComponent } from './shared/components/user-booked-ride/user-booked-ride.component';
 import { UserProposedRideComponent } from './shared/components/user-proposed-ride/user-proposed-ride.component';
 import { UserInfosComponent } from './shared/components/user-infos/user-infos.component';
+import { ConfirmComponent } from './pages/auth/confirm/confirm.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { UserInfosComponent } from './shared/components/user-infos/user-infos.co
     UserAccountComponent,
     UserBookedRideComponent,
     UserProposedRideComponent,
-    UserInfosComponent
+    UserInfosComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
