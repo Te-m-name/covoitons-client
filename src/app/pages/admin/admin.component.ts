@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AdminService} from "../../../shared/services/admin.service";
+import {AdminService} from "../../shared/services/admin.service";
 
 @Component({
   selector: 'app-admin',
@@ -10,19 +10,22 @@ export class AdminComponent implements OnInit {
 
   results?: any[];
 
+  public users:boolean =  false;
+  public rides: boolean = false;
+
   constructor(private as: AdminService) { }
 
   ngOnInit(): void {
   }
 
   public getAllUsers(){
-    this.as.getAllUsers().subscribe(data=>
-      this.results=data)
+    this.users=true;
+    this.rides=false;
   }
 
   public getAllRides(){
-    this.as.getAllRides().subscribe(data=>
-    this.results=data)
+    this.rides = true;
+    this.users = false;
   }
 
 }

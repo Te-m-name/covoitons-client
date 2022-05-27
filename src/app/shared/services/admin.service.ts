@@ -16,4 +16,8 @@ export class AdminService {
   public getAllRides(): Observable<any>{
     return this.http.get("http://localhost:8080/admin/getAllRides");
   }
+
+  public updateIsAdmin(id: number, is_admin: Boolean): Observable<any>{
+    return this.http.patch("http://localhost:8080/admin/updateIsAdmin", {id, is_admin});
+  }
 }
