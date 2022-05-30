@@ -17,11 +17,14 @@ import { SeeARideComponent } from './pages/see-a-ride/see-a-ride.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { CardLightComponent } from './shared/components/card-light/card-light.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { AdminComponent } from './pages/admin/admin.component';
 import { UserAccountComponent } from './pages/user-account/user-account.component';
 import { UserBookedRideComponent } from './shared/components/user-booked-ride/user-booked-ride.component';
 import { UserProposedRideComponent } from './shared/components/user-proposed-ride/user-proposed-ride.component';
 import { UserInfosComponent } from './shared/components/user-infos/user-infos.component';
 import { ConfirmComponent } from './pages/auth/confirm/confirm.component';
+import { ListUsersComponent } from './shared/components/list-users/list-users.component';
+import { ListRidesComponent } from './shared/components/list-rides/list-rides.component';
 
 
 @NgModule({
@@ -37,11 +40,14 @@ import { ConfirmComponent } from './pages/auth/confirm/confirm.component';
     NavbarComponent,
     CardLightComponent,
     FooterComponent,
+    AdminComponent,
     UserAccountComponent,
     UserBookedRideComponent,
     UserProposedRideComponent,
     UserInfosComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    ListUsersComponent,
+    ListRidesComponent
   ],
   imports: [
     BrowserModule,
@@ -64,4 +70,3 @@ export class AppModule { }
 function JWT_Module_Options(JWT_Module_Options: any): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
   throw new Error('Function not implemented.');
 }
-

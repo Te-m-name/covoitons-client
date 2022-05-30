@@ -1,0 +1,22 @@
+<div class="table-container">
+  <table class="tableau">
+    <thead>
+    <tr>
+      <td>Rue</td>
+      <td>Code postal</td>
+      <td>Ville</td>
+      <td>Date</td>
+      <td>places</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ride of results">
+      <td>{{ride.street}}</td>
+      <td>{{ride.post_code}}</td>
+      <td>{{ride.city}}</td>
+      <td>{{ride.departure}}</td>
+      <td>{{ride.places}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
