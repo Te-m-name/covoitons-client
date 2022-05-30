@@ -18,17 +18,26 @@ export class SeeARideComponent implements OnInit {
 
   public user$: Observable<User | null> = this.authService.user$.asObservable();
 
- // public user$ = this.authService.user$;
+  public user!:User | null;
+
   constructor(private rs: RidesService, private router:Router, private actRoute: ActivatedRoute, private authService: AuthService) { }
 
 
   ngOnInit(): void {
 
+    this.currentUser();
     this.actRoute.paramMap.subscribe(res => {
       this.id = res.get('id');
     });
     this.getARide();
   }
+
+  public currentUser() {
+    this.authService.user$.subscribe(user => {
+      this.user = user;
+    })
+  }
+
 
   public getARide(){
     this.rs.getARide(this.id).subscribe( data => {
