@@ -1,14 +1,16 @@
 <div class="container">
     <div class="left-panel">
-        <img class="picture" src="../../../assets/img/cutegoldendog-1652637928757-890.jpg">
-        <p>{{user.firstname}} {{user.lastname}}</p>
+        <div class="profile">
+            <img class="picture" src="../../../assets/img/cutegoldendog-1652637928757-890.jpg">
+            <p>{{user.firstname}} {{user.lastname}}</p>
+        </div>
 
-        <a (click)="seeInfos()">Mes informations</a>
-
+        <a class="general" (click)="seeInfos()">Mes informations</a>
+        <a class="general">Mes trajets</a>
+        
         <div class="routes">
-            <a>Mes trajets</a>
-            <a (click)="seeBookedRides()">Mes trajets réservés</a>
-            <a (click)="seeProposedRides()">Mes trajets proposés</a>
+            <a (click)="seeBookedRides()"> <span class="tab"> </span> Mes trajets réservés</a>
+            <a (click)="seeProposedRides()"> <span class="tab"> </span> Mes trajets proposés</a>
         </div>
     </div>
 
