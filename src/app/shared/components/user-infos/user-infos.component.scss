@@ -1,0 +1,89 @@
+@import "../../../../styles.scss";
+
+.container {
+
+    & h2 {
+        text-align: center;
+    }
+    & .infos {
+        margin: 2em;
+        padding: 0 5em 0 5em;
+        
+
+        & .up {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        & .down {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;     
+            color: $secondary-color;  
+            padding-right: 1%;
+
+            & a:hover {
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+
+        & .picture {
+            border-radius: 15em;
+            width: 15%;
+        }
+    }
+
+    & .next-ride {
+        display: flex;
+        justify-content: center;
+
+        .container {
+            background-color: $primary-color;
+            color: white;
+        
+            border-radius: 2em;
+            width: 60%;
+            margin: 2em;
+            padding: 1em 4em 2em 4em;
+        
+                & .up {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+        
+                    & .pilot {
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+        
+                        & img {
+                            width: 4em;
+                            height: 4em;
+                            border-radius: 20em;
+                            margin-right: 1em;
+                        }
+                    }
+                }
+        
+                & .down {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+        
+                & a {
+                    color: $secondary-color;
+                }
+        
+                & a:hover {
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+        
+            }
+    }
+}
+
+

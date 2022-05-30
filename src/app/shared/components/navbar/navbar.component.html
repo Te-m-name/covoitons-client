@@ -8,8 +8,10 @@
     </div>
 
     <div *ngIf="user">
+        <a *ngIf="user.is_admin" routerLink="admin">Administration</a>
         <a routerLink="trajets">Les trajets</a>
         <a routerLink="nouveau">Ajouter un trajet</a>
+        <a routerLink="mon-compte">Mon compte</a>
         <a class="logout" (click)="logout.emit(true)">Se déconnecter</a>
     </div>
   </nav>

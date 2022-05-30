@@ -7,4 +7,6 @@ export interface User {
   employee_code: number;
   password: string;
   confirm_password: string;
+  is_admin: boolean;
+  enabled: boolean;
 }
