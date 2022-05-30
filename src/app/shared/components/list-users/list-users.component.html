@@ -10,7 +10,7 @@
     </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of results">
+        <tr *ngFor="let user of results; let i= index">
           <td>{{user.lastname}}</td>
           <td>{{user.firstname}}</td>
           <td>{{user.email}}</td>
@@ -20,7 +20,7 @@
             <div *ngIf="user.email=='admin@ipipoe.com'; else elseBlock">Oui</div>
             <ng-template #elseBlock>
               <p>
-                <input (click)="updateIsAdmin(user.id, true)" type="checkbox" checked id="test{{user.id}}" />
+                <input (click)="updateIsAdmin(user.id, false)" type="checkbox" checked id="test{{user.id}}" />
                 <label for="test{{user.id}}">
                   <span class="ui">
                   </span>
@@ -30,7 +30,7 @@
           </td>
           <td *ngIf=!user.is_admin>
             <p>
-              <input (click)="updateIsAdmin(user.id, false)" type="checkbox" id="test{{user.id}}" />
+              <input (click)="updateIsAdmin(user.id, true)" type="checkbox" id="test{{user.id}}" />
               <label for="test{{user.id}}">
                 <span class="ui">
                 </span>

@@ -17,8 +17,17 @@ export class ListRidesComponent implements OnInit {
   }
 
   private getAllRides(){
-    this.as.getAllRides().subscribe(data=>
-      this.results=data)
+    this.as.getAllRides().subscribe(data=>{
+      this.results=data
+    })
+  }
+
+  public deleteRide(id: number, index: number){
+    if (confirm("Confirmer la suppression du trajet") == true) {
+      this.as.deleteRide(id).subscribe(()=>{
+        this.results.splice(index, 1);
+      });
+    }
   }
 
 }

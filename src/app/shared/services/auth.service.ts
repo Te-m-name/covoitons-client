@@ -17,7 +17,7 @@ export class AuthService {
 
   constructor(private http:HttpClient, private cookieService: CookieService) { }
 
-  public signUp(user: User): Observable<any>{
+  public signUp(user: User): Observable<any> {
     return this.http.post("http://localhost:8080/user/add", user);
   }
 
@@ -43,6 +43,10 @@ export class AuthService {
   public logout(): void {
     this.cookieService.delete("access_token");
     this.user$.next(null);
+  }
+
+  public confirmAccount(token: string): Observable<any> {
+    return this.http.get(`${this.url}user/confirm?token=${token}`)
   }
 
 }
