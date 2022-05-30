@@ -28,7 +28,12 @@ export class SignInComponent implements OnInit {
         this.router.navigateByUrl('/');
       },
       (err) => {
-        this.error = err?.error || "Mauvais mot de passe ou email";
+        const message = err?.error.message;
+        if(message == "Bad credentials") {
+          this.error = "Mauvais mot de passe ou email";
+        } else {
+          this.error = err?.error.message;
+        }
       })
     }
   }

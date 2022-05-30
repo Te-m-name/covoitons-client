@@ -22,6 +22,7 @@ import { UserAccountComponent } from './pages/user-account/user-account.componen
 import { UserBookedRideComponent } from './shared/components/user-booked-ride/user-booked-ride.component';
 import { UserProposedRideComponent } from './shared/components/user-proposed-ride/user-proposed-ride.component';
 import { UserInfosComponent } from './shared/components/user-infos/user-infos.component';
+import { ConfirmComponent } from './pages/auth/confirm/confirm.component';
 import { ListUsersComponent } from './shared/components/list-users/list-users.component';
 import { ListRidesComponent } from './shared/components/list-rides/list-rides.component';
 
@@ -44,6 +45,7 @@ import { ListRidesComponent } from './shared/components/list-rides/list-rides.co
     UserBookedRideComponent,
     UserProposedRideComponent,
     UserInfosComponent,
+    ConfirmComponent,
     ListUsersComponent,
     ListRidesComponent
   ],
