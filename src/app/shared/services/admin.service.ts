@@ -24,4 +24,8 @@ export class AdminService {
   public deleteRide(id: number):Observable<any>{
     return this.http.delete(`http://localhost:8080/admin/deleteRide/${id}`);
   }
+
+  public updateEnabled(id: number, enabled: Boolean):Observable<any>{
+    return this.http.patch("http://localhost:8080/admin/updateEnabled", {id, enabled});
+  }
 }
