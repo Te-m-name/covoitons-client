@@ -24,7 +24,7 @@ import { UserProposedRideComponent } from './shared/components/user-proposed-rid
 import { UserInfosComponent } from './shared/components/user-infos/user-infos.component';
 import { ConfirmComponent } from './pages/auth/confirm/confirm.component';
 import { ListUsersComponent } from './shared/components/list-users/list-users.component';
-import { ListRidesComponent } from './shared/components/list-rides/list-rides.component';
+import {ListRidesComponent} from "./shared/components/list-rides/list-rides.component";
 
 
 @NgModule({

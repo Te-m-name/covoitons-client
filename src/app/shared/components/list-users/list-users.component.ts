@@ -22,6 +22,10 @@ export class ListUsersComponent implements OnInit {
   }
 
   public updateIsAdmin(id: number, is_admin: Boolean){
-    this.as.updateIsAdmin(id, is_admin).subscribe();
+    if (confirm("Confirmer le changement de rôle") == true) {
+      this.as.updateIsAdmin(id, is_admin).subscribe();
+    }else{
+      this.results.reload();
+    }
   }
 }
