@@ -20,4 +20,8 @@ export class AdminService {
   public updateIsAdmin(id: number, is_admin: Boolean): Observable<any>{
     return this.http.patch("http://localhost:8080/admin/updateIsAdmin", {id, is_admin});
   }
+
+  public deleteRide(id: number):Observable<any>{
+    return this.http.delete(`http://localhost:8080/admin/deleteRide/${id}`);
+  }
 }

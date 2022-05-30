@@ -23,7 +23,7 @@ import { UserBookedRideComponent } from './shared/components/user-booked-ride/us
 import { UserProposedRideComponent } from './shared/components/user-proposed-ride/user-proposed-ride.component';
 import { UserInfosComponent } from './shared/components/user-infos/user-infos.component';
 import { ListUsersComponent } from './shared/components/list-users/list-users.component';
-import { ListRidesComponent } from './shared/components/list-rides/list-rides.component';
+import {ListRidesComponent} from "./shared/components/list-rides/list-rides.component";
 
 
 @NgModule({
