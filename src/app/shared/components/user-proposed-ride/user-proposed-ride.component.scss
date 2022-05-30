@@ -1,40 +1,56 @@
 @import "../../../../styles.scss";
 
+h2 {
+    text-align: center;
+}
+
 .rides-list {
     text-align: center;
+    margin-top: 2em;
+    max-height: 90%;
+    overflow-y: scroll;
+
+    margin-left: 5vh;
+    margin-right: 5vh;
 
     & .container {
     background-color: $primary-color;
     color: white;
 
     border-radius: 2em;
-    width: 50%;
+    width: 90%;
     margin: 2em;
-    padding: 2em;
+    padding: 1em 4em 1em 4em;
 
     & .up {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
-        & .pilot {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-
-            & img {
-                width: 10em;
-                height: 10em;
-                border-radius: 20em;
-                padding: 1em;
-            }
-        }
+        padding: 0.2em;
     }
 
-    & .down {
+    & .itinary {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 0.2em;
+    }
+
+    & .link {
+
+        display: flex;
+        justify-content: space-between;
+        padding: 0.2em;
+
+        & a {
+            font-weight: bold;
+            color: $secondary-color;
+        }
+
+        & a:hover {
+            cursor: pointer;
+            color: white;
+        }
     }
 
     }
