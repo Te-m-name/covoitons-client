@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -16,16 +16,26 @@ export class SignInComponent implements OnInit {
   });
 
   public error!: string;
+  public next!: string | null;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.actRoute.queryParams.subscribe(params => {
+      this.next = params['next'];
+    })
   }
 
   public submit() {
     if (this.form.valid) {
       this.authService.signIn(this.form.getRawValue()).subscribe((data) => {
-        this.router.navigateByUrl('/');
+        this.authService.fetchCurrentUser().subscribe(() => {
+          if (this.next) {
+            this.router.navigateByUrl(this.next);
+          } else {
+            this.router.navigateByUrl('/');
+          }
+        })
       },
       (err) => {
         const message = err?.error.message;

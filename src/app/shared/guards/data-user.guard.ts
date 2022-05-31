@@ -19,10 +19,12 @@ export class DataUserGuard implements CanActivate {
   ) {}
 
   canActivate(): Observable<true> {
+    console.log("la")
     return this.authService.user$.pipe(
       first(),
       switchMap((user: User | null): Observable<true> => {
-        if(this.token && this.isTokenExpired(this.token)){
+        console.log("laaaa")
+        if(this.token && this.isTokenExpired(this.cookieService.get("access_token"))){
           this.router.navigateByUrl("/connexion")
           return of(true)
         }

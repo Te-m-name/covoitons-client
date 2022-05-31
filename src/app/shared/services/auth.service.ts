@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {User} from "../interfaces/user";
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject, Observable, ReplaySubject} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {tap} from "rxjs/operators";
 import { CookieService } from 'ngx-cookie-service';
@@ -14,6 +14,7 @@ export class AuthService {
   public user$: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(
     null
   );
+  public isLoggedin$: ReplaySubject<boolean> = new ReplaySubject(1);
 
   constructor(private http:HttpClient, private cookieService: CookieService) { }
 
@@ -26,7 +27,6 @@ export class AuthService {
       tap((token: any) => {
         if (token) {
           this.cookieService.set("access_token", token.access_token);
-          this.fetchCurrentUser()
         }
       })
     );
@@ -36,6 +36,11 @@ export class AuthService {
     return this.http.get<User>(`${this.url}user/current-user`).pipe((
       tap((user: User) => {
         this.user$.next(user);
+        if (user) {
+          this.isLoggedin$.next(true);
+        } else {
+          this.isLoggedin$.next(false);
+        }
       })
     ))
   }
