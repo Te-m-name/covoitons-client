@@ -13,6 +13,11 @@ article {
   flex-direction: column;
   align-items: center;
 
+  .date {
+    font-weight: 500;
+    font-size: 1.6em;
+  }
+
   .info {
     display: flex;
     justify-content: space-between;
@@ -25,7 +30,11 @@ article {
       align-items: space-between;
 
       &__arrival {
-        margin-bottom: -0.2em;
+        margin-bottom: -0.1em;
+      }
+
+      &__departure {
+        margin-top: .1em;
       }
     }
 
@@ -69,7 +78,7 @@ article {
   }
 
   p {
-    font-size: 1.7em;
+    font-size: 1.5em;
   }
 
   &:hover {
