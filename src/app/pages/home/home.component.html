@@ -34,7 +34,7 @@
   <section class="container__rides">
     <h2>Les derniers trajets</h2>
     <div class="container__rides__cards">
-      <app-card-light [ride]="ride" *ngFor="let ride of rides"></app-card-light>
+      <app-card-light [ride]="ride" class="container__rides__cards__ride" *ngFor="let ride of rides"></app-card-light>
       <a (click)="ridesReset()" class="container__rides__link">Tout voir</a>
     </div>
   </section>

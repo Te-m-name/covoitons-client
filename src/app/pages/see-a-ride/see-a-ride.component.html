@@ -1,5 +1,5 @@
 <div class="container">
-
+  <div class="loader" *ngIf="!ride"><img src="../../../assets/img/plume.png" alt=""></div>
   <div class="child" *ngIf="ride">
 
     <p class="title">Proposé par <span>{{ride.driverFirstname}}</span> :</p>
@@ -12,7 +12,5 @@
       <button class="btn btn-primary" routerLink="/trajets">Retour</button>
       <button class="btn btn-primary">Réserver</button>
     </div>
-
   </div>
-
 </div>
