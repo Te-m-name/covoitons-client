@@ -1,3 +1,5 @@
+import { Time } from "@angular/common";
+
 export interface RideInterface {
   id_ride: number;
   street: string;
@@ -11,4 +13,5 @@ export interface RideInterface {
   driverLastname: string;
   departure: string;
   arrival: string;
+  arrival_time: Time;
 }

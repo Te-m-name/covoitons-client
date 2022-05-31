@@ -32,11 +32,11 @@
                         </div>
                         <div class="info__ride__city" *ngIf="ride.home_to_office">
                             <p class="info__ride__city__departure">{{ride.date.substring(11, 16)}} - {{ride.city}}</p>
-                            <p>9h - ipipoe</p>
+                            <p>{{ride.arrival_time?.substring(0, 5)}} - ipipoe</p>
                         </div>
                         <div class="info__ride__city" *ngIf="!ride.home_to_office">
-                            <p class="info__ride__city__departure">9h - ipipoe</p>
-                            <p>{{ride.date.substring(11, 16)}} - {{ride.city}}</p>
+                            <p class="info__ride__city__departure">{{ride.date.substring(11, 16)}} - ipipoe</p>
+                            <p>{{ride.arrival_time?.substring(0, 5)}} - {{ride.city}}</p>
                         </div>
                     </div>
                     <div class="info__driver">
