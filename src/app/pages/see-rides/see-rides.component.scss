@@ -214,12 +214,12 @@
 }
 
 ::-webkit-scrollbar-track {
-    border: none;
     margin-top: 2em;
 }
 
 ::-webkit-scrollbar {
     width: 10px;
+    background: none;
 }
 
 ::-webkit-scrollbar-thumb {
