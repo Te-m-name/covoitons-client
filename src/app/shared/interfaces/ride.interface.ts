@@ -5,7 +5,7 @@ export interface RideInterface {
   street: string;
   post_code: number;
   city: string;
-  date: Date;
+  date: string;
   home_to_office: boolean;
   places: number;
   id_user: number;
@@ -13,5 +13,5 @@ export interface RideInterface {
   driverLastname: string;
   departure: string;
   arrival: string;
-  arrival_time: Time;
+  arrival_time: string;
 }

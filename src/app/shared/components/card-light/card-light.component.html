@@ -1,13 +1,22 @@
 <a [routerLink]="['/trajet', ride.id_ride]">
   <article>
-    <p>Mardi 23 mai</p>
-    <div *ngIf="ride.home_to_office">
-      <p>{{ride.city}}</p>
-      <p>Entreprise</p>
-    </div>
-    <div *ngIf="!ride.home_to_office">
-      <p>Entreprise</p>
-      <p>{{ride.city}}</p>
+    <p>{{ride.date | date :'mediumDate':'+01:00':'fr'}}</p>
+    <div class="info">
+      <div class="point">
+        <div class="point__departure">
+            <div class="point__departure__inside"></div>
+        </div>
+        <div class="point__line"></div>
+        <div class="point__arrival"></div>
+      </div>
+      <div *ngIf="ride.home_to_office" class="info__rides">
+        <p>{{ride.date.substring(11, 16)}} - {{ride.city}}</p>
+        <p class="info__rides__arrival">{{ride.arrival_time?.substring(0, 5)}} - Entreprise</p>
+      </div>
+      <div *ngIf="!ride.home_to_office" class="info__rides">
+        <p>{{ride.date.substring(11, 16)}} - Ipipoe</p>
+        <p class="info__rides__arrival">{{ride.arrival_time?.substring(0, 5)}} - {{ride.city}}</p>
+      </div>
     </div>
   </article>
 </a>
