@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {User} from "../interfaces/user";
 import {BehaviorSubject, Observable, ReplaySubject} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {tap} from "rxjs/operators";
 import { CookieService } from 'ngx-cookie-service';
 
@@ -27,9 +27,17 @@ export class AuthService {
       tap((token: any) => {
         if (token) {
           this.cookieService.set("access_token", token.access_token);
+          this.cookieService.set("refresh_token", token.refresh_token);
         }
       })
     );
+  }
+
+  public refresh(token: string): Observable<any> {
+    const headers= new HttpHeaders()
+    .set('Authorization', 'Bearer ' + token);
+
+    return this.http.get(`${this.url}user/token/refresh`, { headers });
   }
 
   public fetchCurrentUser(): Observable<User> {
@@ -48,6 +56,7 @@ export class AuthService {
   public logout(): void {
     this.cookieService.delete("access_token");
     this.user$.next(null);
+    this.isLoggedin$.next(false);
   }
 
   public confirmAccount(token: string): Observable<any> {
