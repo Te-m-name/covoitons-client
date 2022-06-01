@@ -2,17 +2,83 @@
 
 
 article {
-  padding: 2em 8em 2em 2em;
+  padding: 2em 7em 3em 2em;
   background-color: rgba(152, 193, 217);
   border-radius: 3em;
   border: solid 8px $primary-color;
   margin-left: -5em;
   transition: 0.5s;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .date {
+    font-weight: 500;
+    font-size: 1.6em;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+
+    &__rides {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: space-between;
+
+      &__arrival {
+        margin-bottom: -0.1em;
+      }
+
+      &__departure {
+        margin-top: .1em;
+      }
+    }
+
+    .point {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0.5em;
+
+      &__departure {
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          background-color: $dark-color;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &__inside {
+              height: 10px;
+              width: 10px;
+              border-radius: 50%;
+              background-color: white;
+          }
+      }
+
+      &__line {
+          width: 5px;
+          height: 40px;
+          background-color: $dark-color;
+      }
+
+      &__arrival {
+          height: 20px;
+          width: 20px;
+          border-radius: 50%;
+          background-color: white;
+      }
+    }
+  }
 
   p {
-    font-size: 1.8em;
-    margin-bottom: 1em;
+    font-size: 1.5em;
   }
 
   &:hover {

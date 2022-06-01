@@ -23,4 +23,8 @@ export class UserProposedRideComponent implements OnInit {
     this.service.getProposedRides(this.user.id).subscribe(rides => this.rides = rides);
   }
 
+  /* public seeRide(id: string) {
+    this.service.getARide(id).subscribe()
+  } */
+
 }
