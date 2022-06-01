@@ -1,0 +1,28 @@
+@import "../../../../styles.scss";
+
+.table-container{
+  overflow-y: scroll;
+  max-height: 100%;
+}
+
+.tableau{
+  width: 100%;
+}
+.tableau thead{
+  background-color: $secondary-color;
+}
+.tableau thead td{
+  background-color: $secondary-color;
+  padding: 0.5em;
+}
+
+.tableau tbody tr:nth-child(even) {background: $light-color}
+.tableau tbody tr:nth-child(odd) {background: $third-color}
+
+.tableau tbody td{
+  padding: 0.5em;
+}
+
+.trash{
+  cursor: pointer;
+}

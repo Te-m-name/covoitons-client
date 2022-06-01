@@ -1,0 +1,33 @@
+<div class="table-container">
+  <table class="tableau">
+    <thead>
+    <tr>
+      <td>Conducteurs/trices</td>
+      <td>Aller / Retour</td>
+      <td>Adresse</td>
+      <td>Date | Heure</td>
+      <td>Places</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ride of results; let i= index">
+      <td>{{ride.driverLastname}} {{ride.driverFirstname}}</td>
+      <td *ngIf="ride.home_to_office">Aller</td>
+      <td *ngIf="!ride.home_to_office">Retour</td>
+      <td>{{ride.city}} {{ride.post_code}} {{ride.street}}</td>
+      <td>{{ride.departure_date.substring(8, 10)}}/{{ride.departure_date.substring(5, 7)}}/{{ride.departure_date.substring(0, 4)}} | {{ride.departure_date.substring(11, 16)}}</td>
+      <td>{{ride.places}}</td>
+      <td title="Supprimer trajet">
+        <svg class="trash" (click)="deleteRide(ride.id_ride, i)" xmlns="http://www.w3.org/2000/svg"
+             width="24"
+             height="24"
+             fill="red"
+             viewBox="0 0 24 24">
+          <path d="M9 19c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5-17v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712zm-3 4v16h-14v-16h-2v18h18v-18h-2z"/>
+        </svg>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p id="demo"></p>
+</div>

@@ -1,0 +1,66 @@
+@import '../../../../styles.scss';
+
+.container {
+  background-image: url("../../../../assets/img/fond-inscrire.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+
+  img {
+    width: 15em;
+    margin-top: -9em;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(3, 133, 145, 0.90);
+    border-radius: 2em;
+    padding: 2em 5em;
+
+    button:disabled {
+      cursor: default;
+      background-color: #ff7653a5;
+
+      &:hover {
+        background-color: #ff7653a5;
+      }
+    }
+
+    .error {
+      color: rgb(234, 32, 32);
+      margin-bottom: 1.2em;
+    }
+
+    div {
+      margin: 1.8em 0;
+
+      input {
+        border: none;
+        border-radius: 2em;
+        width: 25em;
+        height: 3em;
+        padding-left: 1.1em;
+        outline: none;
+
+        &:focus {
+          outline: 2px solid $secondary-color;
+        }
+        
+      }
+
+      p{
+        color: rgb(234, 32, 32);
+        padding-left: 1em;
+      }
+    }
+  }
+
+
+}

@@ -1,0 +1,109 @@
+@import '../../../styles.scss';
+
+.container {
+  z-index: 999;
+  background-image: url("../../../assets/img/fond-home.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  background-color: $primary-color;
+  min-height: 100vh;
+
+  &__hero {
+    height: 95vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    form{
+      background-color: rgba(152, 193, 217, 0.9);
+      padding: 3em 4em;
+      border-radius: 2em;
+      margin-left: 5em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: $dark-color;
+
+      h2{
+        margin-bottom: 1.2em;
+        font-size: 2.5em;
+        font-weight: bold;
+      }
+
+      .container__hero__radio {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin: 1em;
+        border: none;
+
+        label {
+          font-size: 1.5em;
+          margin-left: 1em;
+        }
+
+        input[type="radio"] {
+          width: 2em;
+          height: 2em;
+        }
+
+        div {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        border: none;
+        border-radius: 2em;
+        width: 40em;
+        height: 2.8em;
+        padding-left: 1.4em;
+        outline: none;
+        margin: 1em 0;
+        font-size: 1.3em;
+
+        &:focus {
+          outline: 2px solid $secondary-color;
+        }
+      }
+
+      .demi_container{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        text-align: center;
+        input[type="text"],
+        input[type="number"],
+        input[type="datetime-local"],
+        input[type="time"] {
+          border: none;
+          border-radius: 2em;
+          width: 19em;
+          height: 2.8em;
+          padding-left: 1.4em;
+          outline: none;
+          margin: 1em auto;
+          font-size: 1.3em;
+
+
+          &:focus {
+            outline: 2px solid $secondary-color;
+          }
+        }
+        ::-webkit-datetime-edit-fields-wrapper { color: rgb(113, 113, 113); }
+        ::-webkit-calendar-picker-indicator { margin-right: 1.2em; }
+      }
+
+      p {
+        color: rgb(234, 32, 32);
+      }
+
+      .demi_container p{
+        margin: 0 auto ;
+      }
+    }
+  }
+}

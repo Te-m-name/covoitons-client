@@ -1,0 +1,53 @@
+@import "src/styles";
+
+.container {
+  background-image: url("../../../assets/img/fond-home.svg");
+  //background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 92.5vh;
+
+    .child {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      height: 35em;
+      width: 55em;
+      background-color: rgba(215, 229, 238, 0.8);
+      border-radius: 2em;
+      padding:6em;
+
+      .title {
+
+        font-size: 2.2em;
+        color: rgb(0, 0, 0);
+        margin-bottom: 1.75em;
+
+        span {
+          font-weight: bold;
+          color: black;
+        }
+      }
+
+      .my-span {
+        font-weight: bold;
+        color: $four-color;
+        margin-left: 2em;
+      }
+
+      p {
+        font-size: 1.5em;
+        margin-bottom: 1em;
+      }
+
+      .custom-btn {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 1.75em;
+      }
+    }
+  }
+

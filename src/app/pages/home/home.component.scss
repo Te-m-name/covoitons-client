@@ -1,0 +1,155 @@
+@import '../../../styles.scss';
+
+.container {
+  z-index: 999;
+  background-image: url("../../../assets/img/fond-home.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+  background-color: $primary-color;
+
+  &__hero {
+    height: 95vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    form {
+      background-color: rgba(152, 193, 217, 0.9);
+      padding: 3em 4em;
+      border-radius: 2em;
+      margin-left: 5em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: $dark-color;
+  
+      h2 {
+        margin-bottom: 1.2em;
+        font-size: 2.5em;
+        font-weight: bold;
+      }
+  
+      .container__hero__radio {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-bottom: 2em;
+  
+        label {
+          font-size: 1.5em;
+          margin-right: 1em;
+        }
+  
+        input[type="radio"] {
+          width: 2em;
+          height: 2em;
+        }
+  
+        div {
+          display: flex;
+          align-items: center;
+        }
+      }
+  
+      input[type="text"],
+      input[type="date"] {
+        border: none;
+        border-radius: 2em;
+        width: 20em;
+        height: 2.8em;
+        padding-left: 1.4em;
+        outline: none;
+        margin: 1em 0;
+        font-size: 1.3em;
+  
+        &:focus {
+          outline: 2px solid $secondary-color;
+        }
+      }
+      ::-webkit-datetime-edit-fields-wrapper { color: rgb(113, 113, 113); }
+      ::-webkit-calendar-picker-indicator { margin-right: 1.2em; }
+    }
+  }
+
+  &__road {
+    margin-top: 4em;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__enterprise {
+    margin-top: 15em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+
+    h2 {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 2em;
+    }
+
+    p {
+      width: 70%;
+      font-size: 1.8em;
+      text-align: center;
+      
+    }
+  }
+
+  &__rides {
+    margin-top: 15em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    min-height: 400px;
+
+    &__link {
+      position: relative;
+      top: -2em;
+      right: 7em;
+      font-size: 1.4em;
+      color: white;
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #ffffff;
+        transform-origin: center;
+        transition: transform 0.25s ease-out;
+      }
+
+      &:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom;
+      }
+    }
+
+    h2 {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 2.5em;
+    }
+
+    &__cards {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-left: 9em;
+    }
+  }
+}
+

@@ -1,0 +1,18 @@
+<header>
+  <nav>
+    <a routerLink="/"><img src="../../../../assets/img/logo.png" alt="logo"></a>
+    <div *ngIf="!user">
+        <a routerLink="trajets">Les trajets</a>
+        <a routerLink="connexion">Se connecter</a>
+        <a routerLink="inscription">S'inscrire</a>
+    </div>
+
+    <div *ngIf="user">
+        <a *ngIf="user.is_admin" routerLink="admin">Administration</a>
+        <a routerLink="trajets">Les trajets</a>
+        <a routerLink="nouveau">Ajouter un trajet</a>
+        <a routerLink="mon-compte">Mon compte</a>
+        <a class="logout" (click)="logout.emit(true)">Se déconnecter</a>
+    </div>
+  </nav>
+</header>

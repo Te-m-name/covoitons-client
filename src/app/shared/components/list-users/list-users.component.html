@@ -1,0 +1,68 @@
+<div class="table-container">
+  <table class="tableau">
+    <thead>
+    <tr>
+      <td>Nom</td>
+      <td>Prénom</td>
+      <td>Email</td>
+      <td>Code Employé</td>
+      <td>Activé</td>
+      <td>Administrateur</td>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of results; let i= index">
+          <td>{{user.lastname}}</td>
+          <td>{{user.firstname}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.employee_code}}</td>
+
+          <td *ngIf=user.enabled>
+            <div *ngIf="user.email=='admin@ipipoe.com'; else elseBlock">Oui</div>
+            <ng-template #elseBlock>
+              <p>
+                <input (click)="updateEnabled(user.id, false, i)" type="checkbox" checked id="enabled{{user.id}}" />
+                <label for="enabled{{user.id}}">
+                  <span class="ui">
+                  </span>
+                </label>
+              </p>
+            </ng-template>
+          </td>
+          <td *ngIf=!user.enabled>
+            <p>
+              <input (click)="updateEnabled(user.id, true, i)" type="checkbox" id="enabled{{user.id}}" />
+              <label for="enabled{{user.id}}">
+                <span class="ui">
+                </span>
+              </label>
+            </p>
+          </td>
+
+          <td *ngIf=user.is_admin>
+            <div *ngIf="user.email=='admin@ipipoe.com'; else elseBlock">Oui</div>
+            <ng-template #elseBlock>
+              <p>
+                <input (click)="updateIsAdmin(user.id, false, i)" type="checkbox" checked id="admin{{user.id}}" />
+                <label for="admin{{user.id}}">
+                  <span class="ui">
+                  </span>
+                </label>
+              </p>
+            </ng-template>
+          </td>
+          <td *ngIf=!user.is_admin>
+            <p>
+              <input (click)="updateIsAdmin(user.id, true, i)" type="checkbox" id="admin{{user.id}}" />
+              <label for="admin{{user.id}}">
+                <span class="ui">
+                </span>
+              </label>
+            </p>
+          </td>
+
+        </tr>
+    </tbody>
+  </table>
+</div>
+

@@ -1,0 +1,104 @@
+@import "../../../../styles.scss";
+
+.table-container{
+  overflow-y: scroll;
+  max-height: 100%;
+}
+
+.tableau{
+  width: 100%;
+}
+.tableau thead{
+  background-color: $secondary-color;
+}
+.tableau thead td{
+  background-color: $secondary-color;
+  padding: 0.5em;
+}
+
+.tableau tbody tr:nth-child(even) {background: $light-color}
+.tableau tbody tr:nth-child(odd) {background: $third-color}
+
+.tableau tbody td{
+  padding: 0.5em;
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  opacity: 0.01;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 4.5em;
+  cursor: pointer;
+}
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before,
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '';
+  position: absolute;
+}
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  left: 0; top: -.1em;
+  width: 4em; height: 1.85em;
+  background: #DDDDDD;
+  border-radius: 1em;
+  transition: background-color .2s;
+}
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  width: 1.4em; height: 1.4em;
+  transition: all .2s;
+  border-radius: 50%;
+  background: #7F8C9A;
+  top: .12em; left: .24em;
+}
+.text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* on checked */
+[type="checkbox"]:checked + label:before {
+  //background:#7F8C9A;
+  background:#DDDDDD;
+}
+[type="checkbox"]:checked + label:after {
+  background: limegreen;
+  left: 2.4em;
+}
+
+[type="checkbox"]:checked + label .ui,
+[type="checkbox"]:not(:checked) + label .ui:before,
+[type="checkbox"]:checked + label .ui:after {
+  position: absolute;
+  left: .6em;
+  width: 6em;
+  border-radius: 1em;
+  font-size: .875em;
+  font-weight: bold;
+  transition: all .2s;
+}
+[type="checkbox"]:not(:checked) + label .ui:before {
+  content: "non";
+  left: 2.35em;
+  top: .2em;
+}
+[type="checkbox"]:checked + label .ui:after {
+  content: "oui";
+  top: .2em;
+  left: .2em;
+ // color: $secondary-color;
+}
+[type="checkbox"]:focus + label:before {
+  border: 1px dashed #777;
+  box-sizing: border-box;
+  margin-top: -1px;
+}
+form p {
+  margin: 1.5em auto;
+}

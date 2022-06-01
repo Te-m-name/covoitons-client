@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="left-panel">
+    <button class="btn" (click)="getAllUsers()">Liste des utilisateurs</button>
+    <button class="btn" (click)="getAllRides()">Liste des trajets</button>
+  </div>
+
+  <div class="right-panel" *ngIf="users">
+    <app-list-users></app-list-users>
+  </div>
+
+  <div class="right-panel" *ngIf="rides">
+    <app-list-rides></app-list-rides>
+  </div>
+</div>

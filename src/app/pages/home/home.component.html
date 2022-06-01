@@ -1,0 +1,43 @@
+
+<div class="container">
+  <section class="container__hero">
+    <form [formGroup]="form" (submit)="submit()">
+      <h2>Rechercher un trajet</h2>
+      <input type="text" placeholder="Ville" formControlName="city">
+      <input type="date" placeholder="Date" formControlName="date">
+      <div class="container__hero__radio">
+        <div>
+          <label for="aller">Aller</label>
+          <input type="radio" formControlName="home_to_office" value="true">
+        </div>
+        <div>
+          <label for="retour">Retour</label>
+          <input type="radio" formControlName="home_to_office" value="false">
+        </div>
+      </div>
+      <button class="btn btn-primary">Rechercher</button>
+    </form>
+  </section>
+  <section class="container__road">
+    <img src="../../../assets/img/road.png" alt="Image de présentation du site">
+  </section>
+  <section class="container__enterprise">
+    <h2>Le mot de l'entreprise</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat augue non faucibus hendrerit. 
+      Nullam et elementum est. Pellentesque a consectetur sem. Donec mattis ex non risus tempor ornare. 
+      Praesent ut ex ante. Sed condimentum elit ac auctor maximus. Proin eu eros ipsum. Mauris ut augue at 
+      mauris lobortis pharetra vitae ac enim. In id nulla quam. Donec vestibulum velit quis lacus porttitor posuere.
+      Praesent justo nisl, egestas nec justo.
+    </p>
+  </section>
+  <section class="container__rides">
+    <h2>Les derniers trajets</h2>
+    <div class="container__rides__cards">
+      <app-card-light [ride]="ride" class="container__rides__cards__ride" *ngFor="let ride of rides"></app-card-light>
+      <a (click)="ridesReset()" class="container__rides__link">Tout voir</a>
+    </div>
+  </section>
+  <app-footer></app-footer>
+</div>
+
