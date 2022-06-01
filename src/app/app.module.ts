@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule} from "@angular/common/http";
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -26,6 +28,7 @@ import { ConfirmComponent } from './pages/auth/confirm/confirm.component';
 import { ListUsersComponent } from './shared/components/list-users/list-users.component';
 import {ListRidesComponent} from "./shared/components/list-rides/list-rides.component";
 
+registerLocaleData(localeFr, 'fr');
 
 @NgModule({
   declarations: [
@@ -54,7 +57,7 @@ import {ListRidesComponent} from "./shared/components/list-rides/list-rides.comp
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     CookieService,

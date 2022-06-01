@@ -21,11 +21,39 @@ export class ListUsersComponent implements OnInit {
       this.results=data);
   }
 
-  public updateIsAdmin(id: number, is_admin: Boolean){
-    if (confirm("Confirmer le changement de rôle") == true) {
-      this.as.updateIsAdmin(id, is_admin).subscribe();
-    }else{
-      this.results.reload();
+  public updateIsAdmin(id: number, is_admin: Boolean, i:number){
+    if(!is_admin) {
+      if (confirm("Retirer le rôle administrateur ?") == true) {
+        this.as.updateIsAdmin(id, is_admin).subscribe();
+        this.results[i].is_admin = is_admin;
+      } else {
+        this.results.reload();
+      }
+    } else{
+      if (confirm("Donner le rôle administrateur ?") == true) {
+        this.as.updateIsAdmin(id, is_admin).subscribe();
+        this.results[i].is_admin = is_admin;
+      } else {
+        this.results.reload();
+      }
+    }
+  }
+
+  public updateEnabled(id:number, enabled: Boolean, i: number){
+    if(!enabled){
+      if (confirm("Désactiver le profil ?") == true) {
+        this.as.updateEnabled(id, enabled).subscribe();
+        this.results[i].enabled=false;
+      }else{
+        this.results.reload();
+      }
+    } else{
+      if (confirm("Activer le profil ?") == true) {
+        this.as.updateEnabled(id, enabled).subscribe();
+        this.results[i].enabled=true;
+      }else{
+        this.results.reload();
+      }
     }
   }
 }
