@@ -1,48 +1,34 @@
-<!-- <div class="container">
-  <form [formGroup]="form" (submit)="submit()" class="container__form">
-    <h2>Inscription</h2>
-    <input type="text" placeholder="Nom" formControlName="lastname">
-    <p *ngIf="form.get('lastname')?.errors?.['required']&&form.get('lastname')?.touched">Veuillez renseigner un nom</p>
-    <input type="text" placeholder="Prénom" formControlName="firstname">
-    <p *ngIf="form.get('firstname')?.errors?.['required']&&form.get('firstname')?.touched">Veuillez renseigner un prénom
-    </p>
-    <input type="email" placeholder="Email" formControlName="email">
-    <p *ngIf="form.get('email')?.errors?.['required']&&form.get('email')?.touched">Veuillez renseigner un email</p>
-    <input type="number" placeholder="Code Employé" formControlName="employee_code">
-    <p *ngIf="form.get('employee_code')?.errors?.['required']&&form.get('employee_code')?.touched">Veuillez renseigner
-      un code employé</p>
-    <input type="password" placeholder="Mot de passe" formControlName="password">
-    <p *ngIf="form.get('password')?.errors?.['required']&&form.get('password')?.touched">Veuillez renseigner un mot de
-      passe</p>
-    <input type="password" placeholder="Confirmation de mot de passe" formControlName="confirm_password">
-    <p *ngIf="form.get('confirm_password')?.errors?.['required']&&form.get('confirm_password')?.touched">Veuillez
-      confirmer votre mot de passe</p>
-    <p *ngIf="error">{{error}}</p>
-    <button>Valider</button>
-  </form>
-</div> -->
-
 <div class="container">
   <form [formGroup]="form" (submit)="submit()" class="container__form">
     <img src="../../../../assets/img/connexion.png" alt="logo">
     <div>
       <input type="text" placeholder="Nom" formControlName="lastname">
       <p *ngIf="form.get('lastname')?.errors?.['required']&&form.get('lastname')?.touched">Veuillez renseigner un nom</p>
+    </div>
+    <div>
       <input type="text" placeholder="Prénom" formControlName="firstname">
-      <p *ngIf="form.get('firstname')?.errors?.['required']&&form.get('firstname')?.touched">Veuillez renseigner un prénom
-      </p>
+      <p *ngIf="form.get('firstname')?.errors?.['required']&&form.get('firstname')?.touched">Veuillez renseigner un prénom</p>
+    </div>
+    <div>
       <input type="email" placeholder="Email" formControlName="email">
       <p *ngIf="form.get('email')?.errors?.['required']&&form.get('email')?.touched">Veuillez renseigner un email</p>
+    </div>
+    <div>
       <input type="number" placeholder="Code Employé" formControlName="employee_code">
       <p *ngIf="form.get('employee_code')?.errors?.['required']&&form.get('employee_code')?.touched">Veuillez renseigner
         un code employé</p>
+    </div>
+    <div>
       <input type="password" placeholder="Mot de passe" formControlName="password">
       <p *ngIf="form.get('password')?.errors?.['required']&&form.get('password')?.touched">Veuillez renseigner un mot de
         passe</p>
+    </div>
+    <div>
       <input type="password" placeholder="Confirmation de mot de passe" formControlName="confirm_password">
       <p *ngIf="form.get('confirm_password')?.errors?.['required']&&form.get('confirm_password')?.touched">Veuillez
         confirmer votre mot de passe</p>
+    </div>
       <p *ngIf="error">{{error}}</p>
-    <button class="btn btn-secondary" [disabled]="!form.valid">S'inscrire</button>
+      <button class="btn btn-secondary" [disabled]="!form.valid"> S'inscrire </button>
   </form>
 </div>
