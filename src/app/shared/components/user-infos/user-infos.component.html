@@ -24,18 +24,18 @@
             <a [routerLink]="['/trajet', ride.id_ride]">
 
                 <div class="up">
-                <h3>{{ride.date.substring(0, 10)}}</h3>
+                <h3>{{ride.date | date :'mediumDate':'+01:00':'fr'}}</h3>
                 <div class="pilot">
                     <img src="../../../../assets/img/polite-frog.png">
-                    <h3>Ayrton Senna</h3>
+                    <h3>{{ride.firstName}}</h3>
                 </div>
                 </div>
                 <div class="down">
                     <div class="itinary" *ngIf="ride.home_to_office">
-                        <h3>{{ride.date.substring(11, 16)}} - IPI POE → ETA - {{ride.city}}</h3>
+                        <h3>{{ride.date.substring(11, 16)}} - IPI POE → {{ride.arrival_time?.substring(0, 5)}} - {{ride.city.charAt(0).toUpperCase() + ride.city.slice(1)}}</h3>
                     </div>
                     <div class="itinary" *ngIf="!ride.home_to_office">
-                        <h3>{{ride.date.substring(11, 16)}} - {{ride.city}} → ETA - IPI POE</h3>
+                        <h3>{{ride.date.substring(11, 16)}} - {{ride.city.charAt(0).toUpperCase() + ride.city.slice(1)}} → {{ride.arrival_time?.substring(0, 5)}} - IPI POE</h3>
                     </div>
                     <a class="cancel"> Annuler </a>
                 </div>
