@@ -15,6 +15,7 @@ export class CreateComponent implements OnInit {
     post_code: ["", Validators.required],
     city: ["", Validators.required],
     date:["", Validators.required],
+    arrival_time:["", Validators.required],
     home_to_office: ["", Validators.required],
     places: ["", Validators.required]
   });

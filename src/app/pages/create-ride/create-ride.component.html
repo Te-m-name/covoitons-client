@@ -15,8 +15,16 @@
           <p *ngIf="form_rides.get('city')?.errors?.['required']&&form_rides.get('city')?.touched">Veuillez renseigner une ville</p>
         </div>
       </div>
-      <input type="datetime-local" placeholder="Date du trajet" formControlName="date" required>
-      <p *ngIf="form_rides.get('date')?.errors?.['required']&&form_rides.get('date')?.touched">Veuillez renseigner une date et une heure</p>
+      <div class="demi_container">
+        <div>
+          <input type="datetime-local" placeholder="Date du trajet" formControlName="date" required>
+          <p *ngIf="form_rides.get('date')?.errors?.['required']&&form_rides.get('date')?.touched">Veuillez renseigner une date et une heure</p>
+        </div>
+        <div>
+          <input type="time" placeholder="Heure d'arrivée" formControlName="arrival_time" required>
+          <p *ngIf="form_rides.get('arrival_time')?.errors?.['required']&&form_rides.get('arrival_time')?.touched">Veuillez renseigner une heure d'arrivée</p>
+        </div>
+      </div>
       <div class="demi_container">
         <fieldset class="container__hero__radio">
           <div>
