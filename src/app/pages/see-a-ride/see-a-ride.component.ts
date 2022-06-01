@@ -45,7 +45,7 @@ export class SeeARideComponent implements OnInit {
     });
   }
 
-  public reservation(ride_id: number) {
+  public booking(ride_id: number) {
 
     let id_user: any;
     this.user$.subscribe(user => {

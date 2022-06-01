@@ -7,7 +7,7 @@
             <!-- <a (click)="seeRide(ride.id)"> Voir </a> -->
             <a>VOir</a>
         </div>
-        
+
             <div class="itinary" *ngIf="ride.home_to_office">
                 <h3>{{ride.date.substring(11, 16)}} - IPI POE ➔ ETA - {{ride.city}}</h3>
             </div>
@@ -17,7 +17,7 @@
 
         <div class="link">
             <a>Passer en récurrent</a>
-            <a> Annuler </a>
+            <a (click)="cancelBooking()"> Annuler </a>
         </div>
 
     </div>

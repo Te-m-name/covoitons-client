@@ -10,7 +10,7 @@
 
     <div class="custom-btn">
       <button class="btn btn-primary" routerLink="/trajets">Retour</button>
-      <button class="btn btn-primary" *ngIf="user && user['id'] != ride.id_user" >Réserver</button>
+      <button class="btn btn-primary" *ngIf="user && user['id'] != ride.id_user" (click)="booking(ride.id_ride)">Réserver</button>
     </div>
   </div>
 </div>
