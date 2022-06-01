@@ -55,6 +55,7 @@ export class AuthService {
 
   public logout(): void {
     this.cookieService.delete("access_token");
+    this.cookieService.delete("refresh_token");
     this.user$.next(null);
     this.isLoggedin$.next(false);
   }
