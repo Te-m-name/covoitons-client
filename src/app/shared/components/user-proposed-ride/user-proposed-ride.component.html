@@ -4,7 +4,8 @@
     <div class="container" *ngFor="let ride of rides">
         <div class="up">
             <h3>{{ride.date.substring(0, 10)}}</h3>
-            <a>Voir</a>
+            <!-- <a (click)="seeRide(ride.id)"> Voir </a> -->
+            <a>VOir</a>
         </div>
         
             <div class="itinary" *ngIf="ride.home_to_office">

@@ -1,47 +1,66 @@
-@import "../../../../styles.scss";
+@import '../../../../styles.scss';
 
 .container {
+  background-image: url("../../../../assets/img/fond-inscrire.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+
+  img {
+    width: 15em;
+    margin-top: -9em;
+  }
+
+  form {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    background-color: rgba(3, 133, 145, 0.90);
+    border-radius: 2em;
+    padding: 2em 5em;
 
-    height: 100vh;
-    background-color: $primary-color;
-    /*border-radius: 2em;*/
+    button:disabled {
+      cursor: default;
+      background-color: #ff7653a5;
 
-    & form {
-        display: flex;
-        flex-direction: column;
-
-        h2 {
-            text-align: center;
-            color:rgb(255, 255, 255);
-        }
-
-        input {
-            margin: 1em 0;
-            border-radius: 2em;
-            border-color: rgb(255, 255, 255);
-            border: solid black 1px;
-            text-align: center;
-            width: 20em;
-            height: 3em;
-            font-size: 1em;
-        }
-
-        button {
-            margin: 1em 0;
-            border-radius: 2em;
-            border-color: rgb(255, 255, 255);
-            border: solid rgb(255, 255, 255) 1px;
-            background-color: $secondary-color;
-            color:rgb(255, 255, 255);
-            height: 3em;
-            font-size: 1em;
-        }
-
-        p {
-            font-size: 0.65em;
-        }
+      &:hover {
+        background-color: #ff7653a5;
+      }
     }
+
+    .error {
+      color: rgb(234, 32, 32);
+      margin-bottom: 1.2em;
+    }
+
+    div {
+      margin: 1.8em 0;
+
+      input {
+        border: none;
+        border-radius: 2em;
+        width: 25em;
+        height: 3em;
+        padding-left: 1.1em;
+        outline: none;
+
+        &:focus {
+          outline: 2px solid $secondary-color;
+        }
+        
+      }
+
+      p{
+        color: rgb(234, 32, 32);
+        padding-left: 1em;
+      }
+    }
+  }
+
+
 }
