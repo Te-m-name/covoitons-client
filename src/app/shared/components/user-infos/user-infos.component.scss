@@ -39,7 +39,7 @@
         display: flex;
         justify-content: center;
 
-        .container {
+        & .container {
             background-color: $primary-color;
             color: white;
         
@@ -47,7 +47,10 @@
             width: 60%;
             margin: 2em;
             padding: 1em 4em 2em 4em;
-        
+
+            & a {
+                color: white;
+            
                 & .up {
                     display: flex;
                     justify-content: space-between;
@@ -73,16 +76,17 @@
                     align-items: center;
                 }
         
-                & a {
+                & .cancel {
                     color: $secondary-color;
                 }
         
-                & a:hover {
+                & .cancel:hover {
                     font-weight: bold;
                     cursor: pointer;
                 }
         
             }
+        }
     }
 }
 

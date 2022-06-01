@@ -22,34 +22,37 @@ h2 {
     margin: 2em;
     padding: 1em 4em 1em 4em;
 
-    & .up {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.2em;
-    }
+    & a {
+        color: white;
 
-    & .itinary {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.2em;
-    }
-
-    & .link {
-
-        display: flex;
-        justify-content: space-between;
-        padding: 0.2em;
-
-        & a {
-            font-weight: bold;
-            color: $secondary-color;
+        & .up {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.2em;
         }
 
-        & a:hover {
-            cursor: pointer;
-            color: white;
+        & .itinary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.2em;
+        }
+
+        & .link {
+
+            display: flex;
+            justify-content: space-between;
+            padding: 0.2em;
+
+            & .link {
+                color: $secondary-color;
+            }
+
+            & .link:hover {
+                cursor: pointer;
+                font-weight: bold;
+            }
         }
     }
 
