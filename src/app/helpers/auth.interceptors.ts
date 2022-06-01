@@ -6,6 +6,7 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http'
 import { Injectable } from '@angular/core'
+import { Router } from '@angular/router'
 import { CookieService } from 'ngx-cookie-service'
 import { BehaviorSubject, catchError, filter, Observable, switchMap, take, throwError } from 'rxjs'
 import { AuthService } from '../shared/services/auth.service'
@@ -14,7 +15,7 @@ import { AuthService } from '../shared/services/auth.service'
 export class AuthInterceptor implements HttpInterceptor {
   private isRefreshing = false;
   private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-  constructor(private cookieService: CookieService, private authService: AuthService) { }
+  constructor(private cookieService: CookieService, private authService: AuthService, private router: Router) { }
 
   intercept(
     req: HttpRequest<any>,
@@ -58,6 +59,7 @@ export class AuthInterceptor implements HttpInterceptor {
             this.isRefreshing = false;
             
             this.authService.logout();
+            this.router.navigateByUrl("/connexion")
             return throwError(err);
           })
         );
