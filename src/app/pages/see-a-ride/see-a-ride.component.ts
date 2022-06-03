@@ -18,17 +18,26 @@ export class SeeARideComponent implements OnInit {
 
   public user$: Observable<User | null> = this.authService.user$.asObservable();
 
- // public user$ = this.authService.user$;
+  public user!:User | null;
+
   constructor(private rs: RidesService, private router:Router, private actRoute: ActivatedRoute, private authService: AuthService) { }
 
 
   ngOnInit(): void {
 
+    this.currentUser();
     this.actRoute.paramMap.subscribe(res => {
       this.id = res.get('id');
     });
     this.getARide();
   }
+
+  public currentUser() {
+    this.authService.user$.subscribe(user => {
+      this.user = user;
+    })
+  }
+
 
   public getARide(){
     this.rs.getARide(this.id).subscribe( data => {
@@ -36,17 +45,17 @@ export class SeeARideComponent implements OnInit {
     });
   }
 
-  public reservation(ride_id: number) {
+  public booking(ride_id: number) {
 
-    let id_user: any;
+    let user_id: any;
     this.user$.subscribe(user => {
-      id_user = user?.id;
+      user_id = user?.id;
     });
 
-    console.log(id_user);
+    console.log(user_id);
     console.log(ride_id);
 
-    this.rs.setReservation(id_user, ride_id).subscribe(()=>{
+    this.rs.setReservation(user_id, ride_id).subscribe(()=>{
       this.router.navigateByUrl("");
     });
 

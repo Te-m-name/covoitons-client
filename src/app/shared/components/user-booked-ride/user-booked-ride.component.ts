@@ -24,4 +24,7 @@ export class UserBookedRideComponent implements OnInit {
     this.service.getBookedRides(this.user.id).subscribe(rides => this.rides = rides);
   }
 
+  public cancelBooking(){
+
+  }
 }

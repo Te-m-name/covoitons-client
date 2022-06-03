@@ -17,7 +17,7 @@
                 <div class="itinary" *ngIf="!ride.home_to_office">
                     <h3>{{ride.date.substring(11, 16)}} - {{ride.city.charAt(0).toUpperCase() + ride.city.slice(1)}} → {{ride.arrival_time?.substring(0, 5)}} - IPI POE</h3>
                 </div>
-                <a class="button"> Annuler </a>
+                <a class="button" (click)="cancelBooking()"> Annuler </a>
             </div>
         </a>
     </div>
