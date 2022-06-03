@@ -27,4 +27,8 @@ export class UserProposedRideComponent implements OnInit {
     this.service.getARide(id).subscribe()
   } */
 
+  public cancelBooking(){
+
+  }
+
 }
