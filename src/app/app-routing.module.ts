@@ -10,6 +10,7 @@ import { SeeARideComponent } from './pages/see-a-ride/see-a-ride.component';
 import {AdminComponent} from "./pages/admin/admin.component";
 import { UserAccountComponent } from './pages/user-account/user-account.component';
 import { ConfirmComponent } from './pages/auth/confirm/confirm.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {path: "", canActivate: [DataUserGuard], component:HomeComponent},
@@ -17,11 +18,11 @@ const routes: Routes = [
   {path: "connexion", component:SignInComponent},
   {path: "trajets", canActivate: [DataUserGuard], component:SeeRidesComponent},
   {path: "trajet/:id", canActivate: [DataUserGuard], component:SeeARideComponent},
-  {path: "nouveau", canActivate: [DataUserGuard], component:CreateComponent},
+  {path: "nouveau", canActivate: [DataUserGuard, AuthGuard], component:CreateComponent},
   {path: "rechercher", canActivate: [DataUserGuard], component:SeeRidesComponent},
-  {path: "mon-compte", canActivate: [DataUserGuard], component:UserAccountComponent},
+  {path: "mon-compte", canActivate: [DataUserGuard, AuthGuard], component:UserAccountComponent},
   {path: "confirm", canActivate: [DataUserGuard], component:ConfirmComponent},
-  {path: "admin", canActivate: [DataUserGuard], component:AdminComponent}
+  {path: "admin", canActivate: [DataUserGuard, AuthGuard], component:AdminComponent}
 ];
 
 @NgModule({
