@@ -47,15 +47,15 @@ export class SeeARideComponent implements OnInit {
 
   public booking(ride_id: number) {
 
-    let id_user: any;
+    let user_id: any;
     this.user$.subscribe(user => {
-      id_user = user?.id;
+      user_id = user?.id;
     });
 
-    console.log(id_user);
+    console.log(user_id);
     console.log(ride_id);
 
-    this.rs.setReservation(id_user, ride_id).subscribe(()=>{
+    this.rs.setReservation(user_id, ride_id).subscribe(()=>{
       this.router.navigateByUrl("");
     });
 
