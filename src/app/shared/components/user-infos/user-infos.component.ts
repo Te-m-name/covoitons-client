@@ -22,6 +22,7 @@ export class UserInfosComponent implements OnInit {
   public getRide() {
     this.service.getNextRide(this.user.id).subscribe(data => {
       this.ride = data;
+      console.log(this.ride);
     })
   }
 
