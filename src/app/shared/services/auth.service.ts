@@ -66,11 +66,10 @@ export class AuthService {
   }
 
   public uploadImage(uploadImageData: any) {
-    return this.http.post('http://localhost:8080/user/upload', uploadImageData, { observe: 'response' })
+    return this.http.post(`${this.url}/image/upload`, uploadImageData, { observe: 'response' })
   }
 
   public getImage() {
-    return this.http.get('http://localhost:8080/user/get')
+    return this.http.get(`${this.url}/image/get`)
   }
-
 }
