@@ -49,7 +49,7 @@ export class RidesService {
   }
 
   public setReservation(user_id: number, ride_id: number): Observable<any> {
-    return this.http.post(`${this.url}/reservation/reservationRide`, {
+    return this.http.post(`${this.url}/booking/book`, {
       user_id,
       ride_id});
   }
@@ -65,5 +65,6 @@ export class RidesService {
   public getNextRide(user: number): Observable<any> {
     return this.http.get(`${this.url}/ride/getNextRide/${user}`);
   }
+
 
 }

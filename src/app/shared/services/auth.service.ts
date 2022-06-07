@@ -65,4 +65,11 @@ export class AuthService {
     return this.http.get(`${this.url}/user/confirm?token=${token}`)
   }
 
+  public uploadImage(uploadImageData: any) {
+    return this.http.post(`${this.url}/image/upload`, uploadImageData, { observe: 'response' })
+  }
+
+  public getImage() {
+    return this.http.get(`${this.url}/image/get`)
+  }
 }

@@ -20,11 +20,16 @@ export class UserProposedRideComponent implements OnInit {
   }
 
   public getProposedRides() {
-    this.service.getProposedRides(this.user.id).subscribe(rides => this.rides = rides);
+    this.service.getProposedRides(this.user.id).subscribe(rides => {this.rides = rides;
+      console.log(rides);});
   }
 
   /* public seeRide(id: string) {
     this.service.getARide(id).subscribe()
   } */
+
+  public cancelBooking(){
+
+  }
 
 }
