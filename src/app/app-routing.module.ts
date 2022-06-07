@@ -11,6 +11,7 @@ import {AdminComponent} from "./pages/admin/admin.component";
 import { UserAccountComponent } from './pages/user-account/user-account.component';
 import { ConfirmComponent } from './pages/auth/confirm/confirm.component';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { QAndAComponent } from './pages/q-and-a/q-and-a.component';
 
 const routes: Routes = [
   {path: "", canActivate: [DataUserGuard], component:HomeComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: "rechercher", canActivate: [DataUserGuard], component:SeeRidesComponent},
   {path: "mon-compte", canActivate: [DataUserGuard, AuthGuard], component:UserAccountComponent},
   {path: "confirm", canActivate: [DataUserGuard], component:ConfirmComponent},
-  {path: "admin", canActivate: [DataUserGuard, AuthGuard], component:AdminComponent}
+  {path: "admin", canActivate: [DataUserGuard, AuthGuard], component:AdminComponent},
+  {path: "faq", canActivate: [DataUserGuard], component: QAndAComponent}
 ];
 
 @NgModule({
