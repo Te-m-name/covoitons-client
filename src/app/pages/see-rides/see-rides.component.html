@@ -15,6 +15,8 @@
         <button class="btn btn-secondary">Rechercher</button>
     </form>
 
+    <div class="map" id="map"></div>
+
     <div class="container__rides">
         <div class="container__rides__box">
             <p *ngIf="(!rides || rides.length === 0) && !loading" class="not-found">Aucune correspondance trouvée</p>

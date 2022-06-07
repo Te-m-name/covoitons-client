@@ -5,6 +5,7 @@ import { RidesService } from '../../shared/services/rides.service';
 import {Router} from "@angular/router";
 import { Observable } from 'rxjs/internal/Observable';
 import { RideInterface } from 'src/app/shared/interfaces/ride.interface';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -15,6 +16,13 @@ import { RideInterface } from 'src/app/shared/interfaces/ride.interface';
 export class SeeRidesComponent implements OnInit {
   public rides$: Observable<RideInterface | null> = this.rs.rides$.asObservable();
   public loading = false;
+
+  public CONFIGURATION = {
+    "ctaTitle": "Checkout",
+    "mapOptions": {"center":{"lat":37.4221,"lng":-122.0841},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":true,"zoom":13,"zoomControl":true,"maxZoom":22},
+    "mapsApiKey": environment.googleKey,
+    "capabilities": {"addressAutocompleteControl":true,"mapDisplayControl":true,"ctaControl":true}
+  };
 
   rides: any = [];
   public form: FormGroup = this.fb.group({
@@ -35,6 +43,8 @@ export class SeeRidesComponent implements OnInit {
         this.getAllRides()
       }
     }) 
+
+    this.initMap()
   }
 
   public submit() {
@@ -54,4 +64,26 @@ export class SeeRidesComponent implements OnInit {
       this.loading = false;
     })
   }
+  
+  public initMap() {
+    const mapElement = document.getElementById("map")
+
+    if(mapElement) {
+      const map = new google.maps.Map(mapElement, {
+        zoom: this.CONFIGURATION.mapOptions.zoom,
+        center: { lat: 43.604652, lng: 1.444209 },
+        mapTypeControl: false,
+        fullscreenControl: this.CONFIGURATION.mapOptions.fullscreenControl,
+        zoomControl: this.CONFIGURATION.mapOptions.zoomControl,
+        streetViewControl: this.CONFIGURATION.mapOptions.streetViewControl
+      });
+
+      return map
+    }
+
+    return null
+    
+  }
+
+  
 }
