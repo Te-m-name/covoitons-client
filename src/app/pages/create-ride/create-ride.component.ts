@@ -17,12 +17,12 @@ export class CreateComponent implements OnInit {
   addressOptions: any = {
     componentRestrictions: { country: 'FR' },
     types: ['address'],
-    fields: ["address_components"]
+    fields: ["address_components", "geometry"]
   }
 
   codeOptions: any = {
     componentRestrictions: { country: 'FR' },
-    types: ['postal_code_suffix']
+    types: ['postal_code']
   }
 
   public componentForm = [
@@ -47,7 +47,7 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  userAddress: string = ''
+  userAddress: any;
 
 
   handleAddressChange(address: any) {
@@ -56,20 +56,20 @@ export class CreateComponent implements OnInit {
   }
 
   public submit(){
-    console.log(this.userAddress)
-    console.log(this.form_rides.getRawValue())
-    // if (this.form_rides.valid){
-    //   const newRide = {
-    //     ...this.form_rides.getRawValue(),
-    //     departure_date: this.form_rides.getRawValue().date.split('T')[0]
-    //   }
+    if (this.form_rides.valid){
+      const newRide = {
+        ...this.form_rides.getRawValue(),
+        departure_date: this.form_rides.getRawValue().date.split('T')[0],
+        lat: this.userAddress.geometry.location.lat(),
+        lng: this.userAddress.geometry.location.lng()
+      }
 
-    //   this.ridesService.createRide(newRide).subscribe(()=>{
-    //     this.router.navigateByUrl("");
-    //   }, (err)=>{
-    //     this.error=err?.error || "error"
-    //   })
-    // }
+      this.ridesService.createRide(newRide).subscribe(()=>{
+        this.router.navigateByUrl("");
+      }, (err)=>{
+        this.error=err?.error || "error"
+      })
+    }
   }
 
   public fillInAddress(place: any) {
@@ -84,7 +84,6 @@ export class CreateComponent implements OnInit {
       for (const component of place.address_components) {
         
         if (component.types[0] === type) {
-          console.log(component)
           return component[addressNameFormat[type]];
         }
       }
