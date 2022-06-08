@@ -27,6 +27,7 @@ import { UserInfosComponent } from './shared/components/user-infos/user-infos.co
 import { ConfirmComponent } from './pages/auth/confirm/confirm.component';
 import { ListUsersComponent } from './shared/components/list-users/list-users.component';
 import {ListRidesComponent} from "./shared/components/list-rides/list-rides.component";
+import { QAndAComponent } from './pages/q-and-a/q-and-a.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -50,7 +51,8 @@ registerLocaleData(localeFr, 'fr');
     UserInfosComponent,
     ConfirmComponent,
     ListUsersComponent,
-    ListRidesComponent
+    ListRidesComponent,
+    QAndAComponent
   ],
   imports: [
     BrowserModule,
