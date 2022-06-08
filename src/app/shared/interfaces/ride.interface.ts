@@ -14,4 +14,6 @@ export interface RideInterface {
   departure: string;
   arrival: string;
   arrival_time: string;
+  lat: number;
+  lng: number;
 }
