@@ -15,39 +15,46 @@
         <button class="btn btn-secondary">Rechercher</button>
     </form>
 
-    <div class="map" id="map"></div>
+    <div class="container__core">
+        <div class="map" id="map"></div>
 
-    <div class="container__rides">
-        <div class="container__rides__box">
-            <p *ngIf="(!rides || rides.length === 0) && !loading" class="not-found">Aucune correspondance trouvée</p>
-            <div class="loader" *ngIf="loading"><img src="../../../assets/img/plume.png" alt=""></div>
-            <a [routerLink]="['/trajet',ride.id_ride]" id="ride-{{ride.id_ride}}" class="container__rides__box__list" *ngFor="let ride of rides">
-                <h3>{{ride.date | date :'fullDate':'+01:00':'fr'}}</h3>
-                <div class="info">
-                    <div class="info__ride">
-                        <div class="point">
-                            <div class="point__departure">
-                                <div class="point__departure__inside"></div>
+        <div class="container__rides">
+            <div class="container__rides__box">
+                <p *ngIf="(!rides || rides.length === 0) && !loading" class="not-found">Aucune correspondance trouvée</p>
+                <div class="loader" *ngIf="loading"><img src="../../../assets/img/plume.png" alt=""></div>
+                <a [routerLink]="['/trajet',ride.id_ride]" id="ride-{{ride.id_ride}}" class="container__rides__box__list" [ngClass]="{'full': ride.places == 0}" *ngFor="let ride of rides">
+                    <div class="date">
+                        <h3>{{ride.date | date :'fullDate':'+01:00':'fr'}}</h3>
+                        <h3 *ngIf="ride.places == 0">Complet</h3>
+                    </div>
+                    <div class="info">
+                        <div class="info__ride">
+                            <div class="point">
+                                <div class="point__departure">
+                                    <div class="point__departure__inside"></div>
+                                </div>
+                                <div class="point__line"></div>
+                                <div class="point__arrival"></div>
                             </div>
-                            <div class="point__line"></div>
-                            <div class="point__arrival"></div>
+                            <div class="info__ride__city" *ngIf="ride.home_to_office">
+                                <p class="info__ride__city__departure">{{ride.date.substring(11, 16)}} - {{ride.city}}</p>
+                                <p>{{ride.arrival_time?.substring(0, 5)}} - ipipoe</p>
+                            </div>
+                            <div class="info__ride__city" *ngIf="!ride.home_to_office">
+                                <p class="info__ride__city__departure">{{ride.date.substring(11, 16)}} - ipipoe</p>
+                                <p>{{ride.arrival_time?.substring(0, 5)}} - {{ride.city}}</p>
+                            </div>
                         </div>
-                        <div class="info__ride__city" *ngIf="ride.home_to_office">
-                            <p class="info__ride__city__departure">{{ride.date.substring(11, 16)}} - {{ride.city}}</p>
-                            <p>{{ride.arrival_time?.substring(0, 5)}} - ipipoe</p>
-                        </div>
-                        <div class="info__ride__city" *ngIf="!ride.home_to_office">
-                            <p class="info__ride__city__departure">{{ride.date.substring(11, 16)}} - ipipoe</p>
-                            <p>{{ride.arrival_time?.substring(0, 5)}} - {{ride.city}}</p>
+                        <div class="info__driver">
+                            <p>{{ride.driverFirstname}} {{ride.driverLastname}}</p>
                         </div>
                     </div>
-                    <div class="info__driver">
-                        <p>{{ride.driverFirstname}} {{ride.driverLastname}}</p>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     </div>
+
+    
 </div>
 
 

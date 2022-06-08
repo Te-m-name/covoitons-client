@@ -17,6 +17,7 @@ export class SeeRidesComponent implements OnInit {
   public rides$: Observable<RideInterface | null> = this.rs.rides$.asObservable();
   public loading = false;
   private map: any;
+  private allMarkers: google.maps.Marker[] = [];
 
   public CONFIGURATION = {
     "ctaTitle": "Checkout",
@@ -28,33 +29,34 @@ export class SeeRidesComponent implements OnInit {
   rides: any = [];
   public form: FormGroup = this.fb.group({
     city: ['', Validators.required],
-    home_to_office: ['', Validators.required],
-    date: ['', Validators.required]
+    home_to_office: [''],
+    date: ['']
   });
 
   constructor(private rs: RidesService, private fb: FormBuilder, private router : Router) { }
 
   ngOnInit(): void {
     this.loading = true;
+    this.initMap()
     this.rides$.subscribe(data => {
       if (data) {
         this.rides = data;
         this.loading = false;
+        this.addMarker();
       } else {
         this.getAllRides()
       }
-    }) 
-
-    this.initMap()
+    })
   }
 
   public submit() {
     if (this.form.valid) {
       this.loading = true;
-      
       this.rs.searchRideByCity(this.form.getRawValue()).subscribe((data) => {
         this.rides = data;
         this.loading = false;
+        this.deleteMarkers();
+        this.addMarker();
       })
     }
   }
@@ -86,7 +88,7 @@ export class SeeRidesComponent implements OnInit {
     this.rides.map((ride: RideInterface) => {
       const lat = ride.lat;
       const lng = ride.lng;
-      
+      console.log("la")
 
       const marker = new google.maps.Marker({
         position: { lat, lng },
@@ -109,7 +111,7 @@ export class SeeRidesComponent implements OnInit {
         if (elmntToView) elmntToView.scrollIntoView();
       });
 
-
+      this.allMarkers.push(marker);
     })
   }
 
@@ -121,6 +123,18 @@ export class SeeRidesComponent implements OnInit {
     `
 
     return contentString
+  }
+
+  public deleteMarkers() {
+    console.log(this.allMarkers)
+    if (this.allMarkers) {
+      this.allMarkers.forEach(marker => {
+        marker.setMap(null);
+        console.log(marker)
+      })
+
+      this.allMarkers.length = 0;
+    }
   }
 
   
