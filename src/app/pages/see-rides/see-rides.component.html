@@ -11,7 +11,7 @@
                 <label for="retour">Retour</label>
             </div>
         </div>
-        <input type="date" placeholder="Date" formControlName="date">
+        <input type="date" placeholder="Date" formControlName="date" min={{today()}}>
         <button class="btn btn-secondary">Rechercher</button>
     </form>
 

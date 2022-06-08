@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 import { RidesService } from '../../shared/services/rides.service';
-import {Router} from "@angular/router";
 import { Observable } from 'rxjs/internal/Observable';
 import { RideInterface } from 'src/app/shared/interfaces/ride.interface';
 import { environment } from 'src/environments/environment';
@@ -11,7 +11,8 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-see-rides',
   templateUrl: './see-rides.component.html',
-  styleUrls: ['./see-rides.component.scss']
+  styleUrls: ['./see-rides.component.scss'],
+  providers: [DatePipe]
 })
 export class SeeRidesComponent implements OnInit {
   public rides$: Observable<RideInterface | null> = this.rs.rides$.asObservable();
@@ -29,11 +30,11 @@ export class SeeRidesComponent implements OnInit {
   rides: any = [];
   public form: FormGroup = this.fb.group({
     city: ['', Validators.required],
-    home_to_office: [''],
-    date: ['']
+    home_to_office: ['', Validators.required],
+    date: [this.today(), Validators.required]
   });
 
-  constructor(private rs: RidesService, private fb: FormBuilder, private router : Router) { }
+  constructor(private rs: RidesService, private fb: FormBuilder, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.loading = true;
@@ -88,7 +89,6 @@ export class SeeRidesComponent implements OnInit {
     this.rides.map((ride: RideInterface) => {
       const lat = ride.lat;
       const lng = ride.lng;
-      console.log("la")
 
       const marker = new google.maps.Marker({
         position: { lat, lng },
@@ -126,7 +126,6 @@ export class SeeRidesComponent implements OnInit {
   }
 
   public deleteMarkers() {
-    console.log(this.allMarkers)
     if (this.allMarkers) {
       this.allMarkers.forEach(marker => {
         marker.setMap(null);
@@ -137,5 +136,9 @@ export class SeeRidesComponent implements OnInit {
     }
   }
 
+  public today() {
+    const date = new Date();
+    return this.datePipe.transform(date, 'yyyy-MM-dd');
+  }
   
 }
