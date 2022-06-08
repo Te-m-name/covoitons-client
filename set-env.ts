@@ -12,7 +12,7 @@ const targetPath = isProduction
 // in the process.env object thanks to dotenv
 const environmentFileContent = `
 export const environment = {
-  production: ${isProduction},
+  production: false,
   apiURL: "http://localhost:8080",
   googleKey: "${process.env["GOOGLE_API_KEY"]}"
 };
