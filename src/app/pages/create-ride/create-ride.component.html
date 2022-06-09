@@ -1,7 +1,11 @@
 <div class="container">
   <section class="container__hero">
-
-    <form [formGroup]="form_rides" (submit)="submit()">
+    <div class="choice" *ngIf="!formRides && !formRecurrentsRides">
+      <h2>Trajet récurrent ?</h2>
+      <button class="btn btn-secondary" (click)="formRecurrentsRides=true">Oui</button>
+      <button class="btn btn-secondary" (click)="formRides=true">Non</button>
+    </div>
+    <form [formGroup]="form_rides" (submit)="submit()" *ngIf="formRides">
       <h2>Ajouter un trajet</h2>
       <input ngx-google-places-autocomplete [options]="addressOptions" (onAddressChange)="handleAddressChange($event)" type="text" placeholder="Rue" formControlName="street" required>
       <p *ngIf="form_rides.get('street')?.errors?.['required']&&form_rides.get('street')?.touched">Veuillez renseigner une rue</p>
@@ -43,6 +47,90 @@
       <div class="demi_container">
         <p *ngIf="form_rides.get('places')?.errors?.['required']&&form_rides.get('places')?.touched">Veuillez renseigner un nombre de places</p>
       </div>
+      <button class="btn btn-primary">Publier</button>
+
+    </form>
+
+    <form [formGroup]="form_recurrents_rides" (submit)="submit_recurrent()" *ngIf="formRecurrentsRides">
+      <h2>Ajouter un trajet</h2>
+      <input ngx-google-places-autocomplete [options]="addressOptions" (onAddressChange)="handleAddressChange($event)" type="text" placeholder="Rue" formControlName="street" required>
+      <p *ngIf="form_recurrents_rides.get('street')?.errors?.['required']&&form_recurrents_rides.get('street')?.touched">Veuillez renseigner une rue</p>
+      <div class="demi_container">
+        <div>
+          <input ngx-google-places-autocomplete [options]="codeOptions" type="text" placeholder="Code Postal" formControlName="post_code" required>
+          <p *ngIf="form_recurrents_rides.get('post_code')?.errors?.['required']&&form_recurrents_rides.get('post_code')?.touched">Veuillez renseigner un code postal</p>
+        </div>
+        <div>
+          <input ngx-google-places-autocomplete [options]="cityOptions" type="text" placeholder="Ville" formControlName="city" required>
+          <p *ngIf="form_recurrents_rides.get('city')?.errors?.['required']&&form_recurrents_rides.get('city')?.touched">Veuillez renseigner une ville</p>
+        </div>
+      </div>
+      <div class="demi_container">
+        <div>
+          <label for="date">Date et heure du trajet</label>
+          <input type="datetime-local" placeholder="Date du trajet" id="date" formControlName="date" required>
+          <p *ngIf="form_recurrents_rides.get('date')?.errors?.['required']&&form_recurrents_rides.get('date')?.touched">Veuillez renseigner une date et une heure</p>
+        </div>
+
+        <div>
+          <label for="arrival_time">Heure d'arrivée</label>
+          <input type="time" placeholder="Heure d'arrivée" id="arrival_time" formControlName="arrival_time" required>
+          <p *ngIf="form_recurrents_rides.get('arrival_time')?.errors?.['required']&&form_recurrents_rides.get('arrival_time')?.touched">Veuillez renseigner une heure d'arrivée</p>
+        </div>
+      </div>
+      <div class="demi_container">
+        <div>
+          <label for="end_Date">Date de fin du trajet</label>
+          <input type="datetime-local" placeholder="Date de fin du trajet" id="end_Date" formControlName="end_Date" required>
+          <p *ngIf="form_recurrents_rides.get('end_Date')?.errors?.['required']&&form_recurrents_rides.get('end_Date')?.touched">Veuillez renseigner une date et une heure</p>
+        </div>
+        <div>
+          <input type="number" placeholder="Nombre de places" formControlName="places" required>
+          <p *ngIf="form_recurrents_rides.get('places')?.errors?.['required']&&form_recurrents_rides.get('places')?.touched">Veuillez renseigner un nombre de places</p>
+        </div>
+      </div>
+
+      <div class="demi_container">
+        <fieldset class="container__hero__radio">
+          <div>
+            <input type="radio" name="home_to_office" value="true" id="forth" formControlName="home_to_office" required>
+            <label for="forth">Aller</label>
+          </div>
+          <div>
+            <input type="radio" name="home_to_office" value="false" id="back" formControlName="home_to_office">
+            <label for="back">Retour</label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="demi_container ">
+        <fieldset class="container__hero__radio recurence">
+          <div>
+            <div>
+              <input type="radio" name="id_delais" value=1 id="1" formControlName="id_delais" required>
+              <label for="1">Tout les jours</label>
+            </div>
+            <div>
+              <input type="radio" name="id_delais" value=2 id="2" formControlName="id_delais">
+              <label for="2">Toute les semaines</label>
+            </div>
+            <div>
+              <input type="radio" name="id_delais" value=3 id="3" formControlName="id_delais" required>
+              <label for="3">Toute les 2 semaines</label>
+            </div>
+          </div>
+          <div>
+            <div>
+              <input type="radio" name="id_delais" value=4 id="4" formControlName="id_delais">
+              <label for="4">Toute les 3 semaines</label>
+            </div>
+            <div>
+              <input type="radio" name="id_delais" value=5 id="5" formControlName="id_delais">
+              <label for="5">Tout les mois</label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
       <button class="btn btn-primary">Publier</button>
 
     </form>
