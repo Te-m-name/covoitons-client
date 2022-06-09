@@ -25,7 +25,7 @@ export class UserBookingRequestComponent implements OnInit {
 
   public cancel(id: number){
     this.rs.cancelBooking(id).subscribe(()=> {
-      this.router.navigateByUrl("");
+      this.getAllMyRequest(this.user);
     });
   }
 

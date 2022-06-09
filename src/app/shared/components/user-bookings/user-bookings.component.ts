@@ -25,11 +25,11 @@ export class UserBookingsComponent implements OnInit {
 
   public validate(id : number){
     this.rs.acceptBooking(id).subscribe( ()=>{
-      this.router.navigateByUrl("mon-compte");})
+      this.getAllRequest(this.user);})
   }
 
   public reject(id : number){
     this.rs.rejectBooking(id).subscribe(()=>{
-      this.router.navigateByUrl("mon-compte");})
+      this.getAllRequest(this.user);})
   }
 }
