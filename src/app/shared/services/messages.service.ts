@@ -16,7 +16,7 @@ export class MessagesService {
   constructor(private http:HttpClient) { }
 
   public getAConversation(id: number): Observable<any> {
-    return this.http.get(`${this.url}/messages/conv/${id}`);
+    return this.http.get(`${this.url}/messages/conv/${id}/`);
   }
 
   public getAllConversations(user: number | undefined): Observable<any> {
@@ -25,6 +25,5 @@ export class MessagesService {
 
   public sendMessage(message: Message) {
     return this.http.post(`${this.url}/messages/send`, message);
-
   }
 }
