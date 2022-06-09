@@ -27,6 +27,10 @@ export class RidesService {
     return this.http.post(`${this.url}/ride/add`, ride);
   }
 
+  public createRecurrentRide(ride: RideInterface): Observable<any> {
+    return this.http.post(`${this.url}/ride/addRecurrentRide`, ride);
+  }
+
   public getARide(id: string | null | undefined): Observable<any>{
     return this.http.get(`${this.url}/ride/getARide/`+ id);
   }
