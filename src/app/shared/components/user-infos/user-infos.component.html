@@ -8,7 +8,7 @@
                 <p>{{user.firstname}} {{user.lastname}}</p>
                 <p>{{user.email}}</p>
             </div>
-            <img class="picture" *ngIf="retrievedImage" [src]="retrievedImage">
+            <div *ngIf="retrievedImage" class="rounded"><img [src]="retrievedImage"></div>
             <img class="picture" *ngIf="!retrievedImage" src="../../../assets/img/cutegoldendog-1652637928757-890.jpg">
         </div>
 
@@ -63,4 +63,4 @@
             </div>
         </div>
     </div>
- </div>
+</div>

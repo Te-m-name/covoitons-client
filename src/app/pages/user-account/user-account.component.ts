@@ -12,6 +12,9 @@ export class UserAccountComponent implements OnInit {
   public infos:boolean = false;
   public bookedRides: boolean = false;
   public proposedRides: boolean = false;
+  retrievedImage: any;
+  base64Data: any;
+  retrieveResponse: any;
 
   constructor(private service:AuthService) { }
 
@@ -19,6 +22,7 @@ export class UserAccountComponent implements OnInit {
       this.getUser();
 /*       this.user$.subscribe(user => id_user = user);*/      
       this.infos = true;
+      this.getImage();
   }
 
   public getUser() {
@@ -43,6 +47,15 @@ export class UserAccountComponent implements OnInit {
     this.bookedRides = false;
   }
 
-  
+  public getImage() {
+    this.service.getImage()
+      .subscribe(
+        res => {
+          this.retrieveResponse = res;
+          this.base64Data = this.retrieveResponse.picByte;
+          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+        }
+      );
+  }
 
 }
