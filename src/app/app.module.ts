@@ -29,6 +29,7 @@ import { ListUsersComponent } from './shared/components/list-users/list-users.co
 import {ListRidesComponent} from "./shared/components/list-rides/list-rides.component";
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { QAndAComponent } from './pages/q-and-a/q-and-a.component';
+import { ChatComponent } from './pages/chat/chat.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -53,7 +54,8 @@ registerLocaleData(localeFr, 'fr');
     ConfirmComponent,
     ListUsersComponent,
     ListRidesComponent,
-    QAndAComponent
+    QAndAComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
