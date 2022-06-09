@@ -1,0 +1,61 @@
+@import '../../../../styles.scss';
+
+.container {
+  background-image: url('../../../../assets/img/confirm.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: calc(100vh - 60px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  &__info {
+    background-color: rgba(152, 193, 217, 0.9);
+    padding: 3em;
+    border-radius: 30px;
+    text-align: center;
+
+    h1 {
+      margin-bottom: 1em;
+      color: $secondary-color;
+      font-size: 2.3em;
+    }
+
+    p {
+      font-size: 1.5em;
+      color: $dark-color;
+    }
+
+    a {
+      margin-top: 1em;
+      font-size: 1.5em;
+      color: $secondary-color;
+      display: inline-block;
+      position: relative;
+
+      &:hover {
+        color: white;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #ffffff;
+        transform-origin: center;
+        transition: transform 0.25s ease-out;
+      }
+
+      &:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom;
+      }
+    }
+  }
+}

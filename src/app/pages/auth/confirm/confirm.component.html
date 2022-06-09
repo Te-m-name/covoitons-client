@@ -1,1 +1,13 @@
-<p *ngIf="!token">Un email de confirmation à était envoyé à votre adresse email. Veillez confirmer votre compte en cliquant sur le lien de l'email.</p>
+<div class="container">
+  <div class="container__info" *ngIf="!token">
+    <h1>Bienvenue chez Covoitons !</h1>
+    <p>Un email de confirmation à était envoyé sur votre email d'entreprise.</p>
+    <p>Veillez confirmer votre compte en cliquant sur le lien dans l'email.</p>
+  </div>
+
+  <div class="container__info" *ngIf="token">
+    <h1>Email confirmé !</h1>
+    <p>Votre compte est désormais activé !</p>
+    <a [routerLink]="['/connexion']">On y va collègue ?</a>
+  </div>
+</div>
