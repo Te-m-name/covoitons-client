@@ -1,0 +1,37 @@
+@import "../../../styles.scss";
+
+.container {
+
+    /* z-index: 999; */
+    background-image: url("../../../assets/img/fond-V3-02.svg");
+    background-size: cover;
+    background-color: $primary-color;
+    height: 95vh;
+
+    display: flex;
+    justify-content: center;
+
+    font-size: medium;
+        
+    & .left-panel {
+        background-color: rgb(224, 251, 252, 0.9);
+        width: 30%;
+        margin: 2em;
+
+        border-radius: 2em;
+
+        display: flex;
+        flex-direction: column;
+        padding-top: 2em;
+
+    }
+
+    & .right-panel {
+        background-color: rgb(224, 251, 252, 0.9);
+        width: 70%;
+        margin: 2em;
+
+        border-radius: 2em;
+        padding: 2em;
+    }
+}
