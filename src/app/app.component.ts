@@ -1,22 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { User } from './shared/interfaces/user';
 import { AuthService } from './shared/services/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public user$: Observable<User | null> = this.authService.user$.asObservable();
 
   constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.loadScript()
+  }
 
   public logout() {
     const currentUrl = this.router.url;
     this.authService.logout();
     this.router.navigateByUrl("/");
   }
+
+  private loadScript() {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${environment.googleKey}&libraries=places&language=en`
+    const head = document.getElementsByTagName('head')[0];
+    if (head !== null && head !== undefined) {
+      document.head.appendChild(script);
+    }
+}
+  
 }

@@ -3,15 +3,15 @@
 
     <form [formGroup]="form_rides" (submit)="submit()">
       <h2>Ajouter un trajet</h2>
-      <input type="text" placeholder="Rue" formControlName="street" required>
+      <input ngx-google-places-autocomplete [options]="addressOptions" (onAddressChange)="handleAddressChange($event)" type="text" placeholder="Rue" formControlName="street" required>
       <p *ngIf="form_rides.get('street')?.errors?.['required']&&form_rides.get('street')?.touched">Veuillez renseigner une rue</p>
       <div class="demi_container">
         <div>
-          <input type="text" placeholder="Code Postal" formControlName="post_code" required>
+          <input ngx-google-places-autocomplete [options]="codeOptions" type="text" placeholder="Code Postal" formControlName="post_code" required>
           <p *ngIf="form_rides.get('post_code')?.errors?.['required']&&form_rides.get('post_code')?.touched">Veuillez renseigner un code postal</p>
         </div>
         <div>
-          <input type="text" placeholder="Ville" formControlName="city" required>
+          <input ngx-google-places-autocomplete [options]="cityOptions" type="text" placeholder="Ville" formControlName="city" required>
           <p *ngIf="form_rides.get('city')?.errors?.['required']&&form_rides.get('city')?.touched">Veuillez renseigner une ville</p>
         </div>
       </div>
