@@ -8,12 +8,29 @@
                 <p>{{user.firstname}} {{user.lastname}}</p>
                 <p>{{user.email}}</p>
             </div>
-            <img class="picture" src="../../../assets/img/cutegoldendog-1652637928757-890.jpg">
+            <img class="picture" *ngIf="retrievedImage" [src]="retrievedImage">
+            <img class="picture" *ngIf="!retrievedImage" src="../../../assets/img/cutegoldendog-1652637928757-890.jpg">
+        </div>
+
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span id="close" (click)="closeForm()">&times;</span>
+                <form class="container__form">
+                    <h2>Upload Image</h2>
+                    <input type="file" (change)="onFileChanged($event)">
+                    <button (click)="submit()">Upload</button>
+                </form>
+                <div *ngIf=message>{{message}}</div>
+
+            </div>
+        
         </div>
 
         <div class="down">
             <a>Modifier mes informations</a>
-            <a>Changer l'avatar</a>
+            <a (click)="openForm()">Changer l'avatar</a>
         </div>
     </div>
 

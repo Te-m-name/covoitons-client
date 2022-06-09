@@ -1,11 +1,12 @@
-<h2> Demandes en attentes </h2>
+<h2> Mes réservations </h2>
 
 <div class="bookings-list">
-  <div class="container" *ngFor="let booking of bookings">
+  <div class="container" *ngFor="let booking of myBookingRequest">
+
     <a >
       <div class="up">
-        <h3>{{booking.departure_date.charAt(0).toUpperCase() | date :'EEEE d MMMM':'+01:00':'fr'}}</h3>
-        <h3>{{booking.userIdentity}}</h3>
+        <h3>{{booking.departure_date | date :'EEEE d MMMM':'+01:00':'fr'}}</h3>
+        <h3>{{booking.driverIdentity}}</h3>
       </div>
 
       <p *ngIf="(booking === [])" class="not-found">Aucune correspondance trouvée</p>
@@ -17,10 +18,11 @@
       </div>
 
       <div class="link">
-        <a class="link" (click)="validate(booking.id)"> Accepter</a>
-        <a class="link" (click)="reject(booking.id)"> Refuser </a>
+        <a class="link" (click)="cancel(booking.id)"> Annuler </a>
       </div>
-    </a>
+      </a>
+
   </div>
 
 </div>
+

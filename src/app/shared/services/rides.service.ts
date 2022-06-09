@@ -54,6 +54,25 @@ export class RidesService {
       ride_id});
   }
 
+  public getBookingsRequest (user_id: number): Observable<any>{
+    return this.http.get(`${this.url}/booking/getBookingOnMyRide/` + user_id);
+  }
+
+  public getMyBookingsRequest (user_id: number): Observable<any>{
+    return this.http.get(`${this.url}/booking/getMyBookingRequest/` + user_id);
+  }
+
+  public acceptBooking(id : number): Observable<any> {
+    return this.http.patch(`${this.url}/booking/acceptBooking/` + id, {});
+  }
+
+  public rejectBooking(id : number): Observable<any> {
+    return this.http.patch(`${this.url}/booking/declineBooking/`+ id,{});
+  }
+
+  public cancelBooking(id : number): Observable<any> {
+    return this.http.delete(`${this.url}/booking/cancelBooking/` + id);
+  }
 
   public getBookedRides(user: number): Observable<any> {
     return this.http.get(`${this.url}/ride/bookedRides/${user}`);

@@ -5,7 +5,9 @@ export interface Booking {
   ride_id: number;
   accepted: boolean;
   userIdentity: string;
+  driverIdentity: string;
   departure_date: string;
+  arrival_time: string;
   departure: string;
   arrival : string;
 }

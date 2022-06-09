@@ -13,6 +13,8 @@ export class UserAccountComponent implements OnInit {
   public bookedRides: boolean = false;
   public proposedRides: boolean = false;
   public bookings: boolean = false;
+  public myBookingRequest: boolean = false;
+
 
 
   constructor(private service:AuthService) { }
@@ -32,6 +34,7 @@ export class UserAccountComponent implements OnInit {
     this.bookedRides = false;
     this.proposedRides = false;
     this.bookings = false;
+    this.myBookingRequest = false;
   }
 
   public seeBookedRides() {
@@ -39,6 +42,7 @@ export class UserAccountComponent implements OnInit {
     this.infos = false;
     this.proposedRides = false;
     this.bookings = false;
+    this.myBookingRequest = false;
   }
 
   public seeProposedRides() {
@@ -46,13 +50,23 @@ export class UserAccountComponent implements OnInit {
     this.infos = false;
     this.bookedRides = false;
     this.bookings = false;
+    this.myBookingRequest = false;
   }
 
-  public seeBookings() {
+  public seeBookingsOnMyRide() {
     this.proposedRides = false;
     this.infos = false;
     this.bookedRides = false;
+    this.myBookingRequest = false;
     this.bookings = true;
+  }
+
+  public seeMyBookings() {
+    this.proposedRides = false;
+    this.infos = false;
+    this.bookedRides = false;
+    this.bookings = false;
+    this.myBookingRequest = true;
   }
 
 }

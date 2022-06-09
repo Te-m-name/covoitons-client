@@ -15,7 +15,8 @@
 
       <a class="general">Réservations</a>
         <div class="routes">
-          <a (click)="seeBookings()"> <span class="tab"> </span> Mes trajets réservés</a>
+          <a (click)="seeMyBookings()"> <span class="tab"> </span> Mes réservations </a>
+          <a (click)="seeBookingsOnMyRide()"> <span class="tab"> </span> Demandes en attentes</a>
 
         </div>
     </div>
@@ -34,6 +35,10 @@
 
     <div class="right-panel" *ngIf="bookings">
       <app-user-bookings [user]="user"></app-user-bookings>
+    </div>
+
+    <div class="right-panel" *ngIf="myBookingRequest">
+      <app-user-booking-request [user]="user"></app-user-booking-request>
     </div>
 
  </div>
