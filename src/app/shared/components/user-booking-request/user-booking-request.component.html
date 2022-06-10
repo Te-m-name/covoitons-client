@@ -1,0 +1,28 @@
+<h2> Mes réservations </h2>
+
+<div class="bookings-list">
+  <div class="container" *ngFor="let booking of myBookingRequest">
+
+    <a >
+      <div class="up">
+        <h3>{{booking.departure_date | date :'EEEE d MMMM':'+01:00':'fr'}}</h3>
+        <h3>{{booking.driverIdentity}}</h3>
+      </div>
+
+      <p *ngIf="(booking === [])" class="not-found">Aucune correspondance trouvée</p>
+      <div class="itinary">
+        <h3>{{booking.date}}</h3>
+      </div>
+      <div class="itinary">
+        <h3>{{booking.departure_date | date:'HH:mm' }} - {{booking.departure}} → {{booking.arrival_time?.substring(0, 5)}} - {{booking.arrival}}</h3>
+      </div>
+
+      <div class="link">
+        <a class="link" (click)="cancel(booking.id)"> Annuler </a>
+      </div>
+      </a>
+
+  </div>
+
+</div>
+

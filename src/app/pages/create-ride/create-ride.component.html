@@ -66,31 +66,6 @@
         </div>
       </div>
       <div class="demi_container">
-        <div>
-          <label for="date">Date et heure du trajet</label>
-          <input type="datetime-local" placeholder="Date du trajet" id="date" formControlName="date" required>
-          <p *ngIf="form_recurrents_rides.get('date')?.errors?.['required']&&form_recurrents_rides.get('date')?.touched">Veuillez renseigner une date et une heure</p>
-        </div>
-
-        <div>
-          <label for="arrival_time">Heure d'arrivée</label>
-          <input type="time" placeholder="Heure d'arrivée" id="arrival_time" formControlName="arrival_time" required>
-          <p *ngIf="form_recurrents_rides.get('arrival_time')?.errors?.['required']&&form_recurrents_rides.get('arrival_time')?.touched">Veuillez renseigner une heure d'arrivée</p>
-        </div>
-      </div>
-      <div class="demi_container">
-        <div>
-          <label for="end_Date">Date de fin du trajet</label>
-          <input type="datetime-local" placeholder="Date de fin du trajet" id="end_Date" formControlName="end_Date" required>
-          <p *ngIf="form_recurrents_rides.get('end_Date')?.errors?.['required']&&form_recurrents_rides.get('end_Date')?.touched">Veuillez renseigner une date et une heure</p>
-        </div>
-        <div>
-          <input type="number" placeholder="Nombre de places" formControlName="places" required>
-          <p *ngIf="form_recurrents_rides.get('places')?.errors?.['required']&&form_recurrents_rides.get('places')?.touched">Veuillez renseigner un nombre de places</p>
-        </div>
-      </div>
-
-      <div class="demi_container">
         <fieldset class="container__hero__radio">
           <div>
             <input type="radio" name="home_to_office" value="true" id="forth" formControlName="home_to_office" required>
@@ -102,9 +77,36 @@
           </div>
         </fieldset>
       </div>
-      <div class="demi_container ">
-        <fieldset class="container__hero__radio recurence">
-          <div>
+      <div class="demi_container">
+        <div class="label">
+          <label for="date">Date et heure du premier trajet</label>
+          <input type="datetime-local" placeholder="Date du trajet" id="date" formControlName="date" required>
+          <p *ngIf="form_recurrents_rides.get('date')?.errors?.['required']&&form_recurrents_rides.get('date')?.touched">Veuillez renseigner une date et une heure</p>
+        </div>
+
+        <div class="label">
+          <label for="arrival_time">Heure d'arrivée</label>
+          <input type="time" placeholder="Heure d'arrivée" id="arrival_time" formControlName="arrival_time" required>
+          <p *ngIf="form_recurrents_rides.get('arrival_time')?.errors?.['required']&&form_recurrents_rides.get('arrival_time')?.touched">Veuillez renseigner une heure d'arrivée</p>
+        </div>
+      </div>
+      <div class="demi_container">
+        <div class="label">
+          <label for="end_Date">Date de fin du trajet</label>
+          <input type="datetime-local" placeholder="Date de fin du trajet" id="end_Date" formControlName="end_Date" required>
+          <p *ngIf="form_recurrents_rides.get('end_Date')?.errors?.['required']&&form_recurrents_rides.get('end_Date')?.touched">Veuillez renseigner une date et une heure</p>
+        </div>
+        <div class="label">
+          <label for="places"> </label>
+          <input type="number" placeholder="Nombre de places" id="places" formControlName="places" required>
+          <p *ngIf="form_recurrents_rides.get('places')?.errors?.['required']&&form_recurrents_rides.get('places')?.touched">Veuillez renseigner un nombre de places</p>
+        </div>
+      </div>
+
+
+      <div class="demi_container">
+        <fieldset class="recurrence">
+          <div class="recurrence_radio">
             <div>
               <input type="radio" name="id_delais" value=1 id="1" formControlName="id_delais" required>
               <label for="1">Tout les jours</label>
@@ -118,7 +120,7 @@
               <label for="3">Toute les 2 semaines</label>
             </div>
           </div>
-          <div>
+          <div class="recurrence_radio">
             <div>
               <input type="radio" name="id_delais" value=4 id="4" formControlName="id_delais">
               <label for="4">Toute les 3 semaines</label>

@@ -38,7 +38,6 @@ export class SeeARideComponent implements OnInit {
     })
   }
 
-
   public getARide(){
     this.rs.getARide(this.id).subscribe( data => {
       this.ride = data;
@@ -51,9 +50,6 @@ export class SeeARideComponent implements OnInit {
     this.user$.subscribe(user => {
       user_id = user?.id;
     });
-
-    console.log(user_id);
-    console.log(ride_id);
 
     this.rs.setReservation(user_id, ride_id).subscribe(()=>{
       this.router.navigateByUrl("");
