@@ -19,7 +19,7 @@
                 <form class="container__form">
                     <h2>Changer mon image de profil</h2>
                     <input type="file" (change)="onFileChanged($event)">
-                    <button (click)="submit()" class="btn btn-primary">Modifier</button>
+                    <button (click)="submit()" class="btn btn-secondary">Modifier</button>
                 </form>
                 <div *ngIf=message>{{message}}</div>
 
