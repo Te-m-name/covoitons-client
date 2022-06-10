@@ -12,17 +12,32 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements OnInit {
   public user$: Observable<User | null> = this.authService.user$.asObservable();
+  retrievedImage: any;
+  base64Data: any;
+  retrieveResponse: any;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadScript()
+    this.getImage()
   }
 
   public logout() {
     const currentUrl = this.router.url;
     this.authService.logout();
     this.router.navigateByUrl("/");
+  }
+
+  public getImage() {
+    this.authService.getImage()
+      .subscribe(
+        res => {
+          this.retrieveResponse = res;
+          this.base64Data = this.retrieveResponse.picByte;
+          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+        }
+      );
   }
 
   private loadScript() {
@@ -33,6 +48,6 @@ export class AppComponent implements OnInit {
     if (head !== null && head !== undefined) {
       document.head.appendChild(script);
     }
-}
+  }
   
 }

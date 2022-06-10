@@ -8,6 +8,7 @@ import { User } from '../../interfaces/user';
 })
 export class NavbarComponent implements OnInit {
   @Input() public user!: User | null;
+  @Input() public retrievedImage!: any;
   @Output() public logout: EventEmitter<true> = new EventEmitter();
 
   constructor() { }
@@ -15,4 +16,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public menu() {
+    const menu: any = document.querySelector(".menu");
+    menu.classList.toggle("menuOpen")
+  }
 }

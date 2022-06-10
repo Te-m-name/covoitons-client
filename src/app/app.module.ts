@@ -57,7 +57,7 @@ registerLocaleData(localeFr, 'fr');
     ListUsersComponent,
     ListRidesComponent,
     QAndAComponent,
-    ChatComponent
+    ChatComponent,
     UserBookingsComponent,
     QAndAComponent,
     UserBookingRequestComponent

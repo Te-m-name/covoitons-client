@@ -1,7 +1,8 @@
 <div class="container">
     <div class="left-panel">
         <div class="profile">
-            <img class="picture" src="../../../assets/img/cutegoldendog-1652637928757-890.jpg">
+            <div *ngIf="retrievedImage" class="rounded"><img [src]="retrievedImage"></div>
+            <img *ngIf="!retrievedImage"class="picture" src="../../../assets/img/cutegoldendog-1652637928757-890.jpg">
             <p>{{user.firstname}} {{user.lastname}}</p>
         </div>
 
