@@ -72,4 +72,8 @@ export class AuthService {
   public getImage() {
     return this.http.get(`${this.url}/image/get`)
   }
+
+  public getUser(id: number) {
+    return this.http.get(`${this.url}/user/getUser/${id}`);
+  }
 }

@@ -11,8 +11,12 @@
         <a *ngIf="user.is_admin" routerLink="admin">Administration</a>
         <a routerLink="trajets">Les trajets</a>
         <a routerLink="nouveau">Ajouter un trajet</a>
-        <a routerLink="mon-compte">Mon compte</a>
-        <a class="logout" (click)="logout.emit(true)">Se déconnecter</a>
+        <div class="rounded"><img *ngIf="retrievedImage" [src]="retrievedImage"></div>
+        <a (click)="menu()">{{user.firstname}} {{user.lastname}} <img class="arrow" src="../../../../assets/icons/nav-arrow.png" alt="fléche nav"></a>
     </div>
   </nav>
+  <div class="menu">
+    <a (click)="menu()" routerLink="mon-compte">Mon compte</a>
+    <a (click)="menu()" class="logout" (click)="logout.emit(true)">Se déconnecter</a>
+  </div>
 </header>

@@ -1,16 +1,24 @@
 <div class="container">
     <div class="left-panel">
         <div class="profile">
-            <img class="picture" src="../../../assets/img/cutegoldendog-1652637928757-890.jpg">
+            <div *ngIf="retrievedImage" class="rounded"><img [src]="retrievedImage"></div>
+            <img *ngIf="!retrievedImage"class="picture" src="../../../assets/img/cutegoldendog-1652637928757-890.jpg">
             <p>{{user.firstname}} {{user.lastname}}</p>
         </div>
 
         <a class="general" (click)="seeInfos()">Mes informations</a>
         <a class="general">Mes trajets</a>
-        
+
         <div class="routes">
             <a (click)="seeBookedRides()"> <span class="tab"> </span> Mes trajets réservés</a>
             <a (click)="seeProposedRides()"> <span class="tab"> </span> Mes trajets proposés</a>
+        </div>
+
+      <a class="general">Réservations</a>
+        <div class="routes">
+          <a (click)="seeMyBookings()"> <span class="tab"> </span> Mes réservations </a>
+          <a (click)="seeBookingsOnMyRide()"> <span class="tab"> </span> Demandes en attentes</a>
+
         </div>
     </div>
 
@@ -25,4 +33,13 @@
     <div class="right-panel" *ngIf="proposedRides">
         <app-user-proposed-ride [user]="user"></app-user-proposed-ride>
     </div>
+
+    <div class="right-panel" *ngIf="bookings">
+      <app-user-bookings [user]="user"></app-user-bookings>
+    </div>
+
+    <div class="right-panel" *ngIf="myBookingRequest">
+      <app-user-booking-request [user]="user"></app-user-booking-request>
+    </div>
+
  </div>
