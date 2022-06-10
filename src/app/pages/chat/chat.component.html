@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="left-panel">
+        <div *ngFor="let conversation of conversations">
+            <a (click)="goToConversation(conversation.id)">
+                <div class="conv">
+                    <p *ngIf="userId==conversation.user1"> Conversation avec {{conversation.user2}} </p>
+                    <p *ngIf="userId==conversation.user2"> Conversation avec {{conversation.user1}} </p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="right-panel">
+        <div class="scroll">
+            <div class="messages" *ngFor="let message of messages">
+                <div class="userIsSender" *ngIf="message.sender==userId"> {{message.content}} </div>
+                <div class="userIsRecipient" *ngIf="message.sender!=userId"> {{message.content}} </div>
+            </div>
+        </div>
+        <div class="answer">
+            <form [formGroup]="form" (submit)="sendAMessage()" class="container__form">
+                <div>
+                <input type="text" placeholder="Envoyer un message" formControlName="messageToSend">
+                <p *ngIf="form.get('messageToSend')?.errors?.['required']&&form.get('password')?.touched">Veuillez renseigner un mot de
+                passe</p>
+                </div>
+                <button class="btn btn-secondary" [disabled]="!form.valid">Envoyer</button>
+            </form>
+        </div>
+    </div>
