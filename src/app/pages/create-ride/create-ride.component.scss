@@ -8,14 +8,35 @@
   background-position: top;
   background-color: $primary-color;
   min-height: 100vh;
+  width: 100%;
 
   &__hero {
     height: 95vh;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    width: 100%;
 
-    form{
+    .choice {
+      text-align: center;
+      margin: auto;
+      background-color: rgba(152, 193, 217, 0.9);
+      padding: 3em;
+      border-radius: 2em;
+
+      h2 {
+        font-size: 2em;
+        margin-bottom: 1em;
+        color: $dark-color;
+      }
+
+      button {
+        margin: 0 1em;
+      }
+    }
+
+
+    form {
       background-color: rgba(152, 193, 217, 0.9);
       padding: 3em 4em;
       border-radius: 2em;
@@ -25,10 +46,37 @@
       align-items: center;
       color: $dark-color;
 
-      h2{
+      h2 {
         margin-bottom: 1.2em;
         font-size: 2.5em;
         font-weight: bold;
+      }
+      .recurrence{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        border: none;
+
+        label {
+          font-size: 1.5em;
+          margin-left: 0.5em;
+        }
+
+        input[type="radio"] {
+          width: 1.5em;
+          height: 1.5em;
+        }
+        .recurrence_radio {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+
+          div{
+            margin: 0.5em 0;
+          }
+        }
       }
 
       .container__hero__radio {
@@ -70,11 +118,12 @@
         }
       }
 
-      .demi_container{
+      .demi_container {
         display: flex;
         justify-content: space-between;
         width: 100%;
         text-align: center;
+
         input[type="text"],
         input[type="number"],
         input[type="datetime-local"],
@@ -93,17 +142,35 @@
             outline: 2px solid $secondary-color;
           }
         }
-        ::-webkit-datetime-edit-fields-wrapper { color: rgb(113, 113, 113); }
-        ::-webkit-calendar-picker-indicator { margin-right: 1.2em; }
+
+        ::-webkit-datetime-edit-fields-wrapper {
+          color: rgb(113, 113, 113);
+        }
+
+        ::-webkit-calendar-picker-indicator {
+          margin-right: 1.2em;
+        }
       }
 
       p {
         color: rgb(234, 32, 32);
       }
 
-      .demi_container p{
-        margin: 0 auto ;
+      .demi_container p {
+        margin: 0 auto;
       }
     }
   }
 }
+
+.label{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 0;
+
+  input {
+    margin : 0.5em 0 0.5em 0 !important;
+  }
+}
+

@@ -12,6 +12,7 @@ import { UserAccountComponent } from './pages/user-account/user-account.componen
 import { ConfirmComponent } from './pages/auth/confirm/confirm.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { QAndAComponent } from './pages/q-and-a/q-and-a.component';
+import { ChatComponent } from './pages/chat/chat.component';
 
 const routes: Routes = [
   {path: "", canActivate: [DataUserGuard], component:HomeComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: "mon-compte", canActivate: [DataUserGuard, AuthGuard], component:UserAccountComponent},
   {path: "confirm", canActivate: [DataUserGuard], component:ConfirmComponent},
   {path: "admin", canActivate: [DataUserGuard, AuthGuard], component:AdminComponent},
-  {path: "faq", canActivate: [DataUserGuard], component: QAndAComponent}
+  {path: "faq", canActivate: [DataUserGuard], component: QAndAComponent},
+  {path: "messagerie", canActivate: [DataUserGuard], component: ChatComponent}
 ];
 
 @NgModule({

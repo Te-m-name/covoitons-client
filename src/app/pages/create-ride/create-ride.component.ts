@@ -9,6 +9,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./create-ride.component.scss']
 })
 export class CreateComponent implements OnInit {
+  public formRides=false;
+  public formRecurrentsRides=false;
+
   cityOptions: any = {
     componentRestrictions: { country: 'FR' },
     types: ['locality']
@@ -40,6 +43,19 @@ export class CreateComponent implements OnInit {
     home_to_office: ["", Validators.required],
     places: ["", Validators.required]
   });
+
+  public form_recurrents_rides: FormGroup=this.fb.group({
+    street: ["", Validators.required],
+    post_code: ["", Validators.required],
+    city: ["", Validators.required],
+    date:["", Validators.required],
+    arrival_time:["", Validators.required],
+    home_to_office: ["", Validators.required],
+    places: ["", Validators.required],
+    id_delais: ["", Validators.required],
+    end_Date: ["", Validators.required]
+  });
+
   public error!: string;
 
   constructor(private fb: FormBuilder, private ridesService: RidesService, private router:Router) { }
@@ -72,6 +88,25 @@ export class CreateComponent implements OnInit {
     }
   }
 
+  public submit_recurrent(){
+    if (this.form_recurrents_rides.valid){
+      const newRide = {
+        ...this.form_recurrents_rides.getRawValue(),
+        departure_date: this.form_rides.getRawValue().date.split('T')[0],
+        enable: true,
+        lat: this.userAddress.geometry.location.lat(),
+        lng: this.userAddress.geometry.location.lng()
+      }
+      console.log(newRide)
+
+      this.ridesService.createRecurrentRide(newRide).subscribe(()=>{
+        this.router.navigateByUrl("");
+      }, (err)=>{
+        this.error=err?.error || "error"
+      })
+    }
+  }
+
   public fillInAddress(place: any) {
     const addressNameFormat: any = {
       'street_number': 'short_name',
@@ -82,19 +117,27 @@ export class CreateComponent implements OnInit {
 
     const getAddressComp = function (type: any) {
       for (const component of place.address_components) {
-        
+
         if (component.types[0] === type) {
           return component[addressNameFormat[type]];
         }
       }
       return '';
     };
-
-    this.form_rides.patchValue({
-      street: getAddressComp('street_number') + ' '
-      + getAddressComp('route')
-    });
-    this.form_rides.patchValue({post_code: getAddressComp('postal_code')});
-    this.form_rides.patchValue({city: getAddressComp('locality')});
+    if(this.formRides){
+      this.form_rides.patchValue({
+        street: getAddressComp('street_number') + ' '
+        + getAddressComp('route')
+      });
+      this.form_rides.patchValue({post_code: getAddressComp('postal_code')});
+      this.form_rides.patchValue({city: getAddressComp('locality')});
+    }else{
+      this.form_recurrents_rides.patchValue({
+        street: getAddressComp('street_number') + ' '
+          + getAddressComp('route')
+      });
+      this.form_recurrents_rides.patchValue({post_code: getAddressComp('postal_code')});
+      this.form_recurrents_rides.patchValue({city: getAddressComp('locality')});
+    }
   }
 }
