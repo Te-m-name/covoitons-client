@@ -14,13 +14,12 @@
 
         <div id="myModal" class="modal">
 
-            <!-- Modal content -->
             <div class="modal-content">
                 <span id="close" (click)="closeForm()">&times;</span>
                 <form class="container__form">
-                    <h2>Upload Image</h2>
+                    <h2>Changer mon image de profil</h2>
                     <input type="file" (change)="onFileChanged($event)">
-                    <button (click)="submit()">Upload</button>
+                    <button (click)="submit()" class="btn btn-primary">Modifier</button>
                 </form>
                 <div *ngIf=message>{{message}}</div>
 
@@ -29,7 +28,6 @@
         </div>
 
         <div class="down">
-            <a>Modifier mes informations</a>
             <a (click)="openForm()">Changer l'avatar</a>
         </div>
     </div>
