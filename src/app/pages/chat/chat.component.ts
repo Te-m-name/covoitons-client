@@ -20,6 +20,7 @@ export class ChatComponent implements OnInit {
   public conversations: any;
   public messages: any;
   public correspondant: any;
+  public correspondants: any;
   public userId!: number | undefined;
 /*   public messageToSend: string = ""; */
 
@@ -37,24 +38,30 @@ export class ChatComponent implements OnInit {
   getAllConversations(user: number | undefined): void{
     this.ms.getAllConversations(this.userId).subscribe(data => {
       this.conversations = data;
-      console.log(this.conversations);
       this.idConv = this.conversations[0].id;
-      console.log(this.idConv);
       this.goToConversation(this.idConv);
+
+      let i: number;
+      console.log(this.conversations.length);
+      for (i=0; i>this.conversations.length; i++){
+        console.log(i);
+        if (this.conversations[i].user1 == this.userId) {
+          this.correspondants[i] = this.getUser(this.conversations[i].user2);
+        } else {
+          this.correspondants[i] = this.getUser(this.conversations[i].user1);
+        }
+      }
+      console.log(this.correspondants);
     });
   }
 
   goToConversation(idConv: number): void {
     this.ms.getAConversation(idConv).subscribe(data => {
       this.messages = data; 
-      console.log(this.messages);
     })
   }
 
   sendAMessage(): void {
-    console.log(this.form.value);
-    console.log(this.idConv);
-    console.log(this.form.value.messageToSend);
     const newMessage: Message = {
       conversationID: this.idConv,
       sender: this.userId,
@@ -64,6 +71,10 @@ export class ChatComponent implements OnInit {
       this.goToConversation(this.idConv),
       this.form.patchValue({messageToSend: ''});    }
     );
+  }
+
+  getUser(id: number) {
+    this.authService.getUser(id).subscribe(user => this.correspondant = user);
   }
 
 }
