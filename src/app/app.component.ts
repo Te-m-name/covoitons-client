@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
   public logout() {
     const currentUrl = this.router.url;
     this.authService.logout();
+    this.retrievedImage = null;
     this.router.navigateByUrl("/");
   }
 
